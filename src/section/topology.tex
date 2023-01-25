@@ -1,0 +1,108 @@
+\begin{frame}
+	\frametitle{\secname}
+
+	\begin{definition}[Topological space]
+		Let $X$ be a set.
+		A \alert{topology} on $X$ is a family $\mathcal{T}\subset 2^{X}$
+		that holds
+
+		\begin{columns}
+			\begin{column}{0.48\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \forall\left\{A_{i}\right\}_{i=1}^{n}\subset
+						      \mathcal{T}\implies
+						      \bigcap\limits_{i=1}^{n}
+						      A_{i}\in\mathcal{T}
+					      \end{math}.
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.48\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \forall
+						      \left\{
+						      A_{\lambda}
+						      \right\}_{\lambda\in\Lambda}\subset
+						      \mathcal{T}\implies
+						      \bigcup\limits_{\lambda\in\Lambda}
+						      A_{\lambda}\in\mathcal{T}
+					      \end{math}.
+				\end{itemize}
+			\end{column}
+		\end{columns}
+
+		If $\mathcal{T}$ is a topology on $X$, then
+		$\left(X,\mathcal{T}\right)$ is a \alert{topological space}.
+		The sets in $\mathcal{T}$ are \alert{open sets}.
+	\end{definition}
+
+	\begin{definition}[Open cover]
+		Let $\left(X,\mathcal{T}\right)$ be a topological space.
+		$\mathcal{C}\subset\mathcal{T}$ is an \alert{open cover}
+		of $X$ iff
+		\begin{math}
+			X\subseteq\bigcup\limits_{A\in\mathcal{C}}A
+		\end{math}.
+	\end{definition}
+
+	\begin{definition}[Hausdorff topological space or $T_{2}$]
+		A topological space $\left(X,\mathcal{T}\right)$ is
+		\alert{Hausdorff} iff $\forall x,y\in X,x\neq y$:
+		$\exists U,V\in\mathcal{T}$ such that
+		\begin{math}
+			\forall x\in U, y\in V:
+			U\cap V=\emptyset
+		\end{math}.
+	\end{definition}
+
+	\begin{definition}[Compact topological space]
+		A topological space $\left(X,\mathcal{T}\right)$ is
+		\alert{compact} iff each open cover of $X$ has a finite subcover.
+	\end{definition}
+
+	\note{
+		Examples of
+		\begin{description}
+			\item[Hausdorff space]
+
+				.
+
+			\item[Compact space]
+
+				.
+		\end{description}
+
+		\
+
+		Examples of non
+
+		\begin{description}
+			\item[Hausdorff space]
+
+				.
+
+			\item[Compact space]
+
+				.
+		\end{description}
+
+		\
+
+		Some facts of
+
+		\begin{description}
+			\item[Hausdorff space]
+
+				.
+
+			\item[Compact space]
+
+				.
+		\end{description}
+	}
+\end{frame}

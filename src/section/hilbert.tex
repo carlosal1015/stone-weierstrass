@@ -1,0 +1,274 @@
+\begin{frame}
+
+	\begin{theorem}[Parallelogram law]
+		Let $\left(V,\left\|\cdot\right\|\right)$ be a normed
+		$\mathds{C}$-vector space.
+		Then,
+		\begin{math}
+			\forall x,y\in V:
+			{\left\|x+y\right\|}^{2}+
+			{\left\|x-y\right\|}^{2}
+			=
+			2\left(
+			{\left\|x\right\|}^{2}
+			+
+			{\left\|y\right\|}^{2}
+			\right)%.\tag{\text{\alert{Ley del paralelogramo}}}
+		\end{math}.
+	\end{theorem}
+
+	% https://matthewhr.files.wordpress.com/2012/09/jordan-von-neumann-theorem.pdf
+	\begin{theorem}[Jordan-von Neumann theorem~\cite{Jordan1935}]
+		Let $\left(V,\left\|\cdot\right\|\right)$ be a normed
+		$\mathds{C}$-vector space.
+		$\left\|\cdot\right\|$ is induced by an inner product iff
+		$\left\|\cdot\right\|$ holds the \alert{parallelogram law}.
+	\end{theorem}
+
+	\begin{theorem}
+		Let $1\leq p<\infty$.
+		The $L^{p}$-norm only holds the parallelogram law for $p=2$.
+	\end{theorem}
+
+	\begin{proof}
+		Let $\left(X,\mathcal{F},\mu\right)$ be a measure space.
+		Then, $\forall E\in\mathcal{F}$:
+		\begin{equation*}
+			{\left\|
+			{\chi}_{E}
+			\right\|}_{p}
+				=
+				{\left(
+					\int_{X}
+					{\left|\chi_{E}\right|}^{p}
+					\dl\mu
+					\right)}^{\frac{1}{p}}
+				=
+				{\left(
+					\int_{E}
+					{\chi_{E}}^{p}
+					\dl\mu
+					\right)}^{\frac{1}{p}}
+			+
+			{\left(
+			\int_{E^{C}}
+			{\chi_{E}}^{p}
+			\dl\mu
+			\right)}^{\frac{1}{p}}
+				=
+				{\left(
+					\int_{E}
+					1\,
+					\dl\mu
+					\right)}^{\frac{1}{p}}
+			+
+			{\left(
+			\int_{E^{C}}
+			0\,
+			\dl\mu
+			\right)}^{\frac{1}{p}}
+				=
+				{\mu\left(E\right)}^{\frac{1}{p}}+
+			0
+			=
+			{\mu\left(E\right)}^{\frac{1}{p}}.
+		\end{equation*}
+
+		If $A,B\in\mathcal{F}$ such that $A\cap B=\emptyset$,
+		$0<\mu\left(A\right)<\infty$ y $0<\mu\left(B\right)<\infty$,
+		then
+		\begin{math}
+			\chi_{A}+
+			\chi_{B}=
+			\left|
+			\chi_{A}-
+			\chi_{B}
+			\right|=
+			\chi_{A\uplus B}
+		\end{math}
+		.
+		\begin{align*}
+			{\left\|\chi_{A}+\chi_{B}\right\|}^{2}_{p}+
+			{\left\|\chi_{A}-\chi_{B}\right\|}^{2}_{p}
+			 & =
+			\left(
+			\int_{X}
+			{\left|
+				\chi_{A}+
+				\chi_{B}
+				\right|}
+			^{p}
+			\dl\mu
+			\right)^{\frac{2}{p}}
+			+
+			\left(
+			\int_{X}
+			{\left|
+				\chi_{A}-
+				\chi_{B}
+				\right|}
+			^{p}
+			\dl\mu
+			\right)^{\frac{2}{p}}
+			=
+			2\left(
+			\int_{X}
+			{\left|
+				\chi_{A\uplus B}
+				\right|}
+			^{p}
+			\dl\mu
+			\right)^{\frac{2}{p}}
+			=
+			2
+				{
+					\left(
+					\mu
+					\left(
+					A\uplus B
+					\right)
+					\right)
+					^{\frac{2}{p}}
+				}.
+			\\
+			\alert{2}\left(
+			{\left\|\chi_{A}\right\|}^{2}_{p}
+			+
+			{\left\|\chi_{B}\right\|}^{2}_{p}
+			\right)
+			 & =
+			\alert{2}
+			\left(
+			{
+				\left(
+				\mu\left(A\right)
+				\right)
+			}
+			^{\frac{2}{p}}
+			+
+			{
+				\left(
+				\mu\left(B\right)
+				\right)
+			}
+			^{\frac{2}{p}}
+			\right).
+		\end{align*}
+		Hence, $L^{p}$-norm only holds the \alert{parallelogram law} for
+		$p=2$.
+	\end{proof}
+\end{frame}
+
+\begin{frame}
+	\begin{definition}[Hilbert space]
+		A \alert{Hilbert space}
+		\begin{math}
+			\left(
+			H,
+			\left\langle\cdot,\cdot\right\rangle
+			\right)
+		\end{math}
+		is a pre-Hilbert space that is complete with respect to the norm
+		\begin{math}
+			\left\|\cdot\right\|=
+			{\left\langle\cdot,\cdot\right\rangle}^{\frac{1}{2}}
+		\end{math}.
+	\end{definition}
+
+	\begin{definition}[Orthonormal basis]
+		Let
+		\begin{math}
+			\left(
+			H,
+			\left\langle\cdot,\cdot\right\rangle
+			\right)
+		\end{math}
+		be a Hilbert space.
+		An \alert{orthonormal basis} of $H$
+		is a countable maximal orthonormal subset
+		\begin{math}
+			{\left\{e_{n}\right\}}_{n\in\mathds{N}}
+		\end{math}
+		of $H$.
+	\end{definition}
+
+	\begin{theorem}
+		Let
+		\begin{math}
+			\left(
+			H,
+			\left\langle\cdot,\cdot\right\rangle
+			\right)
+		\end{math}
+		be a Hilbert space and $\left\{e_{n}\right\}_{n\in\mathds{N}}$
+		an orthonormal basis on $H$.
+		Then, we have convergence of the
+		\alert{Fourier-Bessel series}:
+		\begin{equation*}
+			\forall u\in H:
+			\lim\limits_{n\to\infty}
+			\sum_{k=1}^{n}
+			\left\langle u,e_{k}\right\rangle
+			e_{k}=
+			\sum_{n=1}^{\infty}
+			\left\langle u,e_{n}\right\rangle
+			e_{n}
+			=u.
+		\end{equation*}
+	\end{theorem}
+
+	\begin{theorem}
+		Let
+		\begin{math}
+			\left(
+			H,
+			\left\langle\cdot,\cdot\right\rangle
+			\right)
+		\end{math}
+		be a Hilbert space.
+		If $H$ has an orthonormal basis, then $H$ is \alert{separable}.
+	\end{theorem}
+
+	\begin{theorem}
+		Let $1\leq p<\infty$.
+		The $L^{p}\left(\mu\right)$ is a Hilbert space iff $p=2$.
+	\end{theorem}
+
+	\begin{proof}[\alert{A proof soon}]
+		% \begin{itemize}
+		% 	\item[$\Rightarrow$]
+
+		% 		If $L^{p}\left(\mu\right)$ is Hilbert, then
+		% 		$L^{p}\left(\mu\right)$ is reflexive.
+		% 		I.e.
+		% 		\begin{math}
+		% 			{
+		% 				\left(L^{p}\left(\mu\right)\right)
+		% 			}^{\ast\ast}=
+		% 			{
+		% 			\left({\left(L^{p}\left(\mu\right)\right)}^{\ast}\right)
+		% 			}^{\ast}=
+		% 				{
+		% 					\left(L^{q}\left(\mu\right)\right)
+		% 				}^{\ast}=
+		% 			L^{p}\left(\mu\right)
+		% 		\end{math}.
+		% 		But.
+
+		% 	\item[$\Leftarrow$]
+
+		% 		.
+		% \end{itemize}
+	\end{proof}
+\end{frame}
+
+% Sean $I\subset\mathds{R}$ un intervalo.
+% \begin{math}
+% 	{\left\{\varphi_{k}\right\}}_{\lambda\in\Lambda}\subset
+% 	L^{2}\left(I\right)
+% \end{math}.
+
+% \begin{definition}
+% 	Suponga que $\left(X,\mathcal{F},\mu\right)$ es un espacio de
+% 	medida y $0<p\leq\infty$.
+% \end{definition}

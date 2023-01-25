@@ -1,0 +1,709 @@
+\section{Fejér's theorem}
+% Fejér, L., 82, 139, 142, 152, 153, 728
+\begin{frame}[allowframebreaks]
+	% \frametitle{\secname}
+	% https://en.wikipedia.org/wiki/Fej%C3%A9r%27s_theorem
+	% una función integrable de Lebesgue y que es 
+	\begin{theorem}[\secname]
+		If $f\in L\left(\left[0,2\pi\right]\right)$ is $2\pi$-periodic
+		and $sf\left(\theta\right)\in\mathds{R}$, then
+		\begin{math}
+			\forall\theta\in\operatorname{dom}\left(sf\right):
+			\left\{
+			\sigma_{n}f\left(\theta\right)
+			\right\}_{n\in\mathds{N}}
+		\end{math}
+		is Cesàro summable.
+		I.e.
+		\begin{equation*}
+			\lim\limits_{n\to\infty}
+			\sigma_{n}f\left(\theta\right)=
+			\lim\limits_{n\to\infty}
+			\frac{1}{n}\sum_{k=1}^{n}s_{n}f\left(\theta\right)=
+			sf\left(\theta\right).
+		\end{equation*}
+
+		If $f$ is continuous on $\left[0,2\pi\right]$, then
+		\begin{math}
+			\left\{
+			\sigma_{n}f
+			\right\}_{n\in\mathds{N}}
+		\end{math}
+		converges uniformily
+		to $f$ on $\left[0,2\pi\right]$.
+	\end{theorem}
+
+	\begin{proof}
+		Suppose that $f\in L\left(\left[0,2\pi\right]\right)$ is
+		$2\pi$-periodic and $\theta\in\operatorname{dom}\left(sf\right)$.
+		We define
+		\begin{align*}
+			g_{\theta}\colon\left[0,2\pi\right]
+			 & \to\mathds{R} \\
+			\xi
+			 & \mapsto
+			\frac{
+				f\left(\theta+\xi\right)+f\left(\theta-\xi\right)
+			}{2}-sf\left(\theta\right).
+		\end{align*}
+		Then,
+		\begin{equation*}
+			\lim\limits_{\xi\to0^{+}}
+			\alert{g_{\theta}\left(\xi\right)}=
+			\lim\limits_{\xi\to0^{+}}
+			\left(
+			\alert{
+				\dfrac{
+					f\left(\theta+\xi\right)+f\left(\theta-\xi\right)
+				}{2}-
+				sf\left(\theta\right)
+			}
+			\right)=
+			\alert{
+				\lim\limits_{\xi\to0^{+}}
+				\dfrac{
+					f\left(\theta+\xi\right)+f\left(\theta-\xi\right)
+				}{2}
+			}
+			-sf\left(\theta\right)=
+			\alert{sf\left(\theta\right)}-
+			sf\left(\theta\right)
+			=
+			0.
+		\end{equation*}
+		I.e.
+		\begin{math}
+			\forall\varepsilon>0:
+			\exists
+			0<\delta_{\xi}<\pi
+		\end{math}
+		such that
+		\begin{math}
+			\forall 0<\xi<\delta_{\xi}:
+			\fcolorbox{DarkBlue}{yellow}{
+				\begin{math}
+					\left|g_{\theta}\left(\xi\right)\right|<
+					\dfrac{\varepsilon}{2}
+				\end{math}
+			}
+		\end{math}.
+
+		\framebreak
+
+		\begin{itemize}
+			\item
+
+			      Let $n\in\mathds{N}$ and $\xi\in\left[0,\delta\right]$.
+		\end{itemize}
+
+		\begin{align*}
+			\left|
+			\sigma_{n}f
+			\left(\theta\right)-sf\left(\theta\right)
+			\right|
+			 & =
+			\left|
+			\frac{2}{\pi}
+			\int\limits_{0}^{\delta}
+			\left(
+			\alert{
+				\frac{
+					f\left(\theta+\xi\right)+
+					f\left(\theta-\xi\right)
+				}{2}-sf\left(\theta\right)
+			}
+			\right)
+			K_{n}\left(\xi\right)
+			\dl\xi
+			\right|
+			=
+			\left|
+			\frac{2}{\pi}
+			\int\limits_{0}^{\delta}
+			\alert{
+				g_{\theta}\left(\xi\right)
+			}
+			K_{n}\left(\xi\right)
+			\dl\xi
+			\right|
+			\leq
+			\frac{2}{\pi}
+			\int\limits_{0}^{\delta}
+			\alert{
+				\left|
+				g_{\theta}\left(\xi\right)
+				\right|
+			}
+			\left|
+			K_{n}\left(\xi\right)
+			\right|
+			\dl\xi. \\
+			\left|
+			\sigma_{n}f
+			\left(\theta\right)-sf\left(\theta\right)
+			\right|
+			 & <
+			\frac{2}{\pi}
+			\int\limits_{0}^{\delta}
+			\alert{\frac{\varepsilon}{2}}
+			\left|
+			K_{n}\left(\xi\right)
+			\right|
+			\dl\xi
+			=
+			\frac{\varepsilon}{\pi}
+			\alert{\int\limits_{0}^{\delta}}
+			K_{n}\left(\xi\right)
+			\dl\xi
+			<
+			\frac{\varepsilon}{\pi}
+			\alert{\int\limits_{0}^{\pi}}
+			K_{n}\left(\xi\right)
+			\dl\xi
+			=
+			\frac{\varepsilon}{\pi}\cdot
+			\alert{\frac{\pi}{2}}=
+			\frac{\varepsilon}{2}.
+		\end{align*}
+
+		\begin{itemize}
+			\item
+
+			      Let $n\in\mathds{N}$ and $\xi\in\left[\delta,\pi\right]$.
+			      Since
+			      \begin{math}
+				      g_{\theta}\in
+				      L\left(\left[0,2\pi\right]\right),
+			      \end{math}
+			      then
+			      \begin{math}
+				      \displaystyle
+				      M=
+				      \alert{
+					      \int\limits_{\delta}^{\pi}
+				      }
+				      \left|g_{\theta}\left(\xi\right)\right|
+				      \dl\xi
+				      \leq
+				      \alert{
+					      \int\limits_{0}^{2\pi}
+				      }
+				      \left|g_{\theta}\left(\xi\right)\right|
+				      \dl\xi
+				      <\infty
+			      \end{math}.
+		\end{itemize}
+
+		\begin{align*}
+			\left|
+			\sigma_{n}f\left(\theta\right)-
+			sf\left(\theta\right)
+			\right| & \leq
+			\frac{2}{\pi}
+			\int\limits_{\delta}^{\pi}
+			\left|
+			g_{\theta}\left(\xi\right)
+			\right|
+			\alert{
+				\left|
+				K_{n}\left(\xi\right)
+				\right|
+			}
+			\dl\xi=
+			\frac{2}{\pi}
+			\int\limits_{\delta}^{\pi}
+			\left|
+			g_{\theta}\left(\xi\right)
+			\right|
+			\alert{K_{n}\left(\xi\right)}
+			\dl\xi
+			\leq
+			\frac{2}{\pi}
+			\int\limits_{\delta}^{\pi}
+			\left|
+			g_{\theta}\left(\xi\right)
+			\right|
+			\alert{
+				\frac{1}{
+					2n\sin^{2}\left(\frac{\delta}{2}\right)
+				}
+			}
+			\dl\xi
+			=
+			\int\limits_{\delta}^{\pi}
+			\frac{
+				\left|
+				g_{\theta}\left(\xi\right)
+				\right|
+			}{
+				n\pi\sin^{2}\left(\frac{\delta}{2}\right)
+			}
+			\dl\xi.
+		\end{align*}
+		Since $\mathds{R}$ is an \alert{archimedean} ordered field,
+		satisfies the \alert{archimedean property}, i.e.
+
+		\begin{equation*}
+			\forall\varepsilon>0:
+			\forall L\in\mathds{R}:
+			\exists n_{0}\in\mathds{N}
+			\text{ such that }
+			\frac{1}{n_{0}}L<
+			\frac{\varepsilon}{2}.
+		\end{equation*}
+	\end{proof}
+\end{frame}
+
+\begin{frame}
+	\begin{proof}
+		Let
+		\begin{math}
+			L=
+			\dfrac{
+				\alert{M}
+			}{
+				\pi\sin^{2}\left(\frac{\delta}{2}\right)
+			}
+		\end{math}.
+		Next,
+		\begin{math}
+			\displaystyle
+			\forall\varepsilon>0:
+			\forall L\in\mathds{R}:
+			\exists n_{0}\in\mathds{N}
+			\text{ such that }
+			\frac{1}{n_{0}}
+			\frac{
+			\alert{
+			\int\limits_{\delta}^{\pi}
+			\left|g_{\theta}\left(\xi\right)\right|
+			\dl\xi}
+			}{\pi\sin^{2}\left(\frac{\delta}{2}\right)}
+			<\frac{\varepsilon}{2}
+		\end{math}.
+		Then, $\forall n>n_{0}$:
+
+		\begin{align*}
+			\frac{1}{n}                                 & <
+			\frac{1}{n_{0}}.                                \\
+			\alert{\frac{1}{n}}
+			\frac{
+				\left|
+				g_{\theta}\left(\xi\right)
+				\right|
+			}{\pi\sin^{2}\left(\frac{\delta}{2}\right)} & <
+			\alert{\frac{1}{n_{0}}}
+			\frac{
+				\left|
+				g_{\theta}\left(\xi\right)
+				\right|
+			}{\pi\sin^{2}\left(\frac{\delta}{2}\right)}.    \\
+			\left|
+			\sigma_{n}f\left(\theta\right)-
+			sf\left(\theta\right)
+			\right|\leq
+			\alert{
+				\int\limits_{\delta}^{\pi}
+				\frac{1}{n}
+			}
+			\frac{
+				\left|
+				g_{\theta}\left(\xi\right)
+				\right|
+			}{
+				\pi\sin^{2}\left(\frac{\delta}{2}\right)
+			}
+			\dl\xi
+			                                            & <
+			\alert{
+				\int\limits_{\delta}^{\pi}
+				\frac{1}{n_{0}}
+			}
+			\frac{
+			\left|g_{\theta}\left(\xi\right)\right|
+			}{\pi\sin^{2}\left(\frac{\delta}{2}\right)}
+			\dl\xi=
+			\frac{1}{n_{0}}
+			\frac{
+			\int\limits_{\delta}^{\pi}
+			\left|g_{\theta}\left(\xi\right)\right|
+			\dl\xi
+			}{\pi\sin^{2}\left(\frac{\delta}{2}\right)}
+			<\frac{\varepsilon}{2}.
+		\end{align*}
+
+		I.e.
+		\begin{math}
+			\forall\varepsilon>0:
+			\exists n_{0}\in\mathds{N}
+			\text{ such that }
+			\forall n\geq n_{0}:
+		\end{math}
+
+		\begin{equation*}
+			\left|
+			\sigma_{n}f\left(\theta\right)-
+			sf\left(\theta\right)
+			\right|
+			\leq
+			\frac{2}{\pi}
+			\alert{\int\limits_{0}^{\pi}}
+			\left|
+			g_{\theta}\left(\xi\right)
+			\right|
+			K_{n}\left(\xi\right)
+			\dl\xi
+			=
+			\frac{2}{\pi}
+			\alert{\int\limits_{0}^{\delta}}
+			\left|
+			g_{\theta}\left(\xi\right)
+			\right|
+			K_{n}\left(\xi\right)
+			\dl\xi
+			+
+			\frac{2}{\pi}
+			\alert{\int\limits_{\delta}^{\pi}}
+			\left|
+			g_{\theta}\left(\xi\right)
+			\right|
+			K_{n}\left(\xi\right)
+			\dl\xi
+			<\frac{\varepsilon}{2}+
+			\frac{\varepsilon}{2}=
+			\varepsilon.
+		\end{equation*}
+	\end{proof}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+	\begin{proof}
+		Suppose that $f$ is continuous in $\left[0,2\pi\right]$.
+		We define
+		\begin{align*}
+			h_{\theta}\colon\left[0,2\pi\right]
+			 & \to\mathds{R} \\
+			\xi
+			 & \mapsto
+			\frac{
+				f\left(\theta+\xi\right)+f\left(\theta-\xi\right)
+			}{2}-f\left(\theta\right).
+		\end{align*}
+		Since $f$ is continuous in $\left[0,2\pi\right]$, $h_{\theta}$ is
+		uniformily continuous in $\left[0,2\pi\right]$.
+		I.e.
+		\begin{math}
+			\forall\varepsilon>0:
+			\exists
+			0<\delta<\pi
+		\end{math}
+		such that
+		\begin{math}
+			\forall\xi_{1},\xi_{2}\in\left[0,2\pi\right]
+		\end{math}:
+
+		\begin{equation*}
+			\left|
+			\xi_{1}-\xi_{2}
+			\right|<\delta
+			\implies
+			\left|
+			h_{\theta}\left(\xi_{1}\right)-
+			h_{\theta}\left(\xi_{2}\right)
+			\right|<
+			\dfrac{\varepsilon}{2}.
+		\end{equation*}
+
+		Hence, for $\xi_{1}=\xi$ and $\xi_{2}=0$:
+		\begin{math}
+			\left|
+			h_{\theta}\left(\xi\right)-
+			\alert{h_{\theta}\left(0\right)}
+			\right|
+			=
+			\left|
+			h_{\theta}\left(\xi\right)-
+			\alert{
+				\left(
+				\frac{f\left(\theta+0\right)+f\left(\theta-0\right)}{2}-
+				f\left(\theta\right)
+				\right)
+			}
+			\right|
+			=
+			\fcolorbox{DarkBlue}{yellow}{
+				\begin{math}
+					\left|
+					h_{\theta}\left(\xi\right)
+					\right|
+					<
+					\dfrac{\varepsilon}{2}
+				\end{math}
+			}
+		\end{math}.
+
+		In other hand,
+		\begin{align*}
+			\left|
+			\alert{\sigma_{n}f\left(\theta\right)}-
+			f\left(\theta\right)\cdot\alert{1}
+			\right| & =
+			\left|
+			\alert{
+				\frac{2}{\pi}
+				\int\limits_{0}^{\pi}
+				\frac{f\left(\theta+\xi\right)+f\left(\theta-\xi\right)}{2}
+				K_{n}\left(\xi\right)\dl\xi
+			}
+			-
+			f\left(\theta\right)
+			\alert{
+				\frac{2}{\pi}
+				\int_{0}^{\pi}
+				K_{n}\left(\xi\right)
+				\dl\xi
+			}
+			\right|=
+			\left|
+			\frac{2}{\pi}
+			\int\limits_{0}^{\pi}
+			h_{\theta}\left(\xi\right)
+			K_{n}\left(\xi\right)\dl\xi
+			\right|        \\
+			        & \leq
+			\frac{2}{\pi}
+			\int\limits_{0}^{\pi}
+			\left|
+			h_{\theta}\left(\xi\right)
+			\right|
+			\left|
+			K_{n}\left(\xi\right)
+			\right|
+			\dl\xi=
+			\frac{2}{\pi}
+			\int\limits_{0}^{\pi}
+			\left|
+			h_{\theta}\left(\xi\right)
+			\right|
+			K_{n}\left(\xi\right)
+			\dl\xi.
+		\end{align*}
+
+		\framebreak
+
+		\begin{itemize}
+			\item
+
+			      Let $n\in\mathds{N}$ and $\xi\in\left[0,\delta\right]$.
+
+		\end{itemize}
+
+		\begin{equation*}
+			\left|
+			\sigma_{n}f\left(\theta\right)-
+			f\left(\theta\right)
+			\right|
+			\leq
+			\frac{2}{\pi}
+			\int\limits_{0}^{\delta}
+			\alert{
+				\left|
+				h_{\theta}\left(\xi\right)
+				\right|
+			}
+			K_{n}\left(\xi\right)
+			\dl\xi
+			<
+			\frac{2}{\pi}
+			\int\limits_{0}^{\delta}
+			\alert{
+				\frac{\varepsilon}{2}
+			}
+			K_{n}\left(\xi\right)
+			\dl\xi
+			<
+			\frac{\varepsilon}{\pi}
+			\alert{
+				\int\limits_{0}^{\pi}
+				K_{n}\left(\xi\right)
+				\dl\xi
+			}
+			=\frac{\varepsilon}{\pi}\cdot
+			\alert{\frac{\pi}{2}}=
+			\frac{\varepsilon}{2}.
+		\end{equation*}
+
+		\begin{itemize}
+			\item
+
+			      Let $n\in\mathds{N}$ and $\xi\in\left[\delta,\pi\right]$.
+			      Since $h_{\theta}$ is bounded on
+			      $\left[\delta,\pi\right]$, attains the maximum
+			      \begin{math}
+				      \alert{M}
+				      \coloneqq
+				      \max\limits_{\theta\in\left[\delta,\pi\right]}
+				      \left|
+				      h_{\theta}
+				      \right|
+			      \end{math}.
+		\end{itemize}
+
+		\begin{equation*}
+			\left|
+			\sigma_{n}f\left(\theta\right)-
+			f\left(\theta\right)
+			\right|
+			\leq
+			\frac{2}{\pi}
+			\int\limits_{\delta}^{\pi}
+			\alert{
+				\left|
+				h_{\theta}\left(\xi\right)
+				\right|
+			}
+			K_{n}\left(\xi\right)
+			\dl\xi
+			\leq
+			\frac{2}{\pi}
+			\int\limits_{\delta}^{\pi}
+			\alert{M}
+			K_{n}\left(\xi\right)
+			\dl\xi
+			\leq
+			\frac{2}{\pi}
+			\int\limits_{\delta}^{\pi}
+			\alert{
+				\frac{M}{
+					2n\sin^{2}\left(\frac{\delta}{2}\right)
+				}
+			}
+			\dl\xi=
+			\int\limits_{\delta}^{\pi}
+			\frac{M}{n\pi\sin^{2}\left(\frac{\delta}{2}\right)}
+			\dl\xi.
+		\end{equation*}
+
+		Since $\mathds{R}$ is an \alert{archimedean} ordered field,
+		satisfies the \alert{archimedean property}, i.e.
+
+		\begin{equation*}
+			\forall\varepsilon>0:
+			\forall L\in\mathds{R}:
+			\exists n_{0}\in\mathds{N}
+			\text{ such that }
+			\frac{1}{n_{0}}L<
+			\frac{\varepsilon}{2}.
+		\end{equation*}
+
+		Let
+		\begin{math}
+			L=
+			\dfrac{
+				M
+			}{
+				\pi\sin^{2}\left(\frac{\delta}{2}\right)
+			}
+		\end{math}.
+		Next,
+		\begin{math}
+			\displaystyle
+			\forall\varepsilon>0:
+			\forall L\in\mathds{R}:
+			\exists n_{0}\in\mathds{N}
+			\text{ such that }
+			\frac{1}{n_{0}}
+			\frac{
+				M
+			}{\pi\sin^{2}\left(\frac{\delta}{2}\right)}
+			<\frac{\varepsilon}{2}
+		\end{math}.
+		Then, $\forall n>n_{0}$:
+
+		\framebreak
+
+		\begin{align*}
+			\frac{1}{n}                                 & <
+			\frac{1}{n_{0}}.                                \\
+			\alert{\frac{1}{n}}
+			\frac{
+				M
+			}{\pi\sin^{2}\left(\frac{\delta}{2}\right)} & <
+			\alert{\frac{1}{n_{0}}}
+			\frac{
+				M
+			}{\pi\sin^{2}\left(\frac{\delta}{2}\right)}.    \\
+			\left|
+			\sigma_{n}f\left(\theta\right)-
+			f\left(\theta\right)
+			\right|\leq
+			\alert{
+				\int\limits_{\delta}^{\pi}
+				\frac{1}{n}
+			}
+			\frac{
+				M
+			}{
+				\pi\sin^{2}\left(\frac{\delta}{2}\right)
+			}
+			\dl\xi
+			                                            & <
+			\alert{
+				\int\limits_{\delta}^{\pi}
+				\frac{1}{n_{0}}
+			}
+			\frac{
+				M
+			}{\pi\sin^{2}\left(\frac{\delta}{2}\right)}
+			\dl\xi=
+			\frac{1}{n_{0}}
+			\frac{
+				M
+			}{\pi\sin^{2}\left(\frac{\delta}{2}\right)}
+			<\frac{\varepsilon}{2}.
+		\end{align*}
+
+		I.e.
+		\begin{math}
+			\forall\varepsilon>0:
+			\exists n_{0}\in\mathds{N}
+			\text{ such that }
+			\forall n\geq n_{0}:
+			\forall\theta\in\left[0,2\pi\right]:
+		\end{math}
+
+		\begin{equation*}
+			\left|
+			\sigma_{n}f\left(\theta\right)-
+			f\left(\theta\right)
+			\right|
+			\leq
+			\frac{2}{\pi}
+			\alert{\int\limits_{0}^{\pi}}
+			\left|
+			h_{\theta}\left(\xi\right)
+			\right|
+			K_{n}\left(\xi\right)
+			\dl\xi
+			=
+			\frac{2}{\pi}
+			\alert{\int\limits_{0}^{\delta}}
+			\left|
+			h_{\theta}\left(\xi\right)
+			\right|
+			K_{n}\left(\xi\right)
+			\dl\xi
+			+
+			\frac{2}{\pi}
+			\alert{\int\limits_{\delta}^{\pi}}
+			\left|
+			h_{\theta}\left(\xi\right)
+			\right|
+			K_{n}\left(\xi\right)
+			\dl\xi
+			<\frac{\varepsilon}{2}+
+			\frac{\varepsilon}{2}=
+			\varepsilon.
+		\end{equation*}
+	\end{proof}
+\end{frame}

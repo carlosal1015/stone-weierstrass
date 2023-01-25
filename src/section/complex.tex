@@ -1,0 +1,79 @@
+\begin{frame}
+	Let is remember from the course of Complex analysis.
+
+	\begin{definition}[Power series]
+		An infinite series
+		\begin{equation*}
+			a_{0}+
+			\sum_{n=1}^{\infty}
+			a_{n}
+				{\left(z-z_{0}\right)}^{n}
+		\end{equation*}
+		is a \alert{power series} in $z-z_{0}$.
+	\end{definition}
+
+	\begin{theorem}
+		Let
+		\begin{math}
+			a_{0}+
+			\sum\limits_{n=1}^{\infty}
+			a_{n}
+				{\left(z-z_{0}\right)}^{n}
+		\end{math}
+		be a power series.
+		\begin{equation*}
+			\frac{1}{R}=
+			\limsup_{n\to\infty}\sqrt[n]{\left|a_{n}\right|}.
+		\end{equation*}
+		Then, the series converges absolutely if
+		\begin{math}
+			\left|z-z_{0}\right|<R
+		\end{math}
+		and diverges if
+		\begin{math}
+			\left|z-z_{0}\right|>R
+		\end{math}.
+		Also, the series converges uniformily on every compact subset
+		interior to the disk of convergence.
+	\end{theorem}
+
+	\begin{definition}[Power series expansion]
+		The \alert{power series expansion} of a function $f$ about a
+		given point $z_{0}$ is uniquely determined by
+		\begin{equation*}
+			f\left(z\right)=
+			\sum_{n=0}^{\infty}
+			\frac{f^{\left(n\right)}\left(z_{0}\right)}{n!}
+			{\left(z-z_{0}\right)}^{n}.
+		\end{equation*}
+	\end{definition}
+\end{frame}
+
+% \begin{frame}
+% 	\begin{theorem}[Abel limit theorem]
+% 		Suppose that the complex power series
+% 		\begin{math}
+% 			\sum\limits_{n=0}^{\infty}
+% 			a_{n}x^{n}
+% 		\end{math}
+% 		converge absolutamente en un punto $x_{0}$,
+% 		entonces la serie de potencias converge uniformemente en
+% 		un intervalo compacto $\left[-c,c\right]$, donde
+% 		$c=\left|x_{0}\right|$.
+% 	\end{theorem}
+
+% 	\begin{theorem}[Mean convergence]
+% 		.
+% 	\end{theorem}
+
+% 	\begin{theorem}
+% 		Let
+% 		\begin{math}
+% 			{\left\{
+% 				f_{n}
+% 				\right\}}_{n\in\mathds{N}}
+% 			\subset
+% 			\mathds{C}
+% 		\end{math}.
+% 	\end{theorem}
+% \end{frame}

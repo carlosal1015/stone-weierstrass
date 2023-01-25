@@ -1,0 +1,241 @@
+% !TeX root = test.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The tcolorbox inner theme
+% A beamer inner theme which reproduces standard beamer blocks using tcolorboxes
+% Maintained by samcarter
+%
+% Project repository and bug tracker:
+% https://github.com/samcarter/beamertheme-tcolorbox
+%
+% Released under the LaTeX Project Public License v1.3c or later
+% See http://www.latex-project.org/lppl.txt
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesPackage{beamerinnerthemetcolorbox}[2022/09/14 version v0.5 Beamer blocks with tcolorboxes]
+
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins,hooks}
+
+\providecommand\@secondofthree[3]{#2}
+
+\tcbset{
+  beamer@tcb@if/.code n args = {3}{%  
+    \csname #1\endcsname\expandafter\@secondofthree\fi  
+    \@secondoftwo{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}%
+  }
+}
+\newif\ifbeamer@tcb@rounded
+\newif\ifbeamer@tcb@shadow
+\newif\ifbeamer@tcb@shaded
+\newif\ifbeamer@tcb@showtitle
+\newif\ifbeamer@tcb@inmargin
+\newif\ifbeamer@tcb@color
+\newif\ifbeamer@tcb@left
+\newif\ifbeamer@tcb@right
+\newif\ifbeamer@tcb@center
+\newif\ifbeamer@tcb@titlepage
+\newif\ifbeamer@tcb@blocks
+\beamer@tcb@colortrue
+\def\beamer@tcb@true{true}
+
+\tikzset{
+  /beamer@tcb/.cd,
+  wd/.store in = \beamer@tcb@wd,
+  wd = \textwidth,
+  dp/.code = \relax,
+  ht/.code = \relax,
+  left/.code = \beamer@tcb@lefttrue,
+  right/.code = \beamet@tcb@righttrue,
+  center/.code = \beamer@tcb@centertrue,
+  leftskip/.store in = \beamer@tcb@leftskip,
+  leftskip = 0.05cm,
+  rightskip/.store in = \beamer@tcb@rightskip,
+  rightskip = 0.05cm,
+  sep/.store in = \beamer@tcb@sep,
+  sep = 1mm,
+  colsep/.code = \relax,
+  colsep*/.code = \relax,
+  shadow/.code = \relax,
+  rounded/.code = \relax,
+  ignorebg/.code = \relax,
+  vmode/.code = \relax,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Theme Options
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareOptionBeamer{shadow}[true]{\csname beamer@tcb@shadow#1\endcsname}
+\DeclareOptionBeamer{rounded}[true]{\csname beamer@tcb@rounded#1\endcsname\csname beamer@tcb@shaded#1\endcsname\csname beamer@tcb@showtitlefalse\endcsname}
+\DeclareOptionBeamer{shaded}[true]{\csname beamer@tcb@shaded#1\endcsname}
+\DeclareOptionBeamer{inmargin}[true]{\csname beamer@tcb@inmargin#1\endcsname}
+\DeclareOptionBeamer{showtitle}[true]{\csname beamer@tcb@showtitle#1\endcsname}
+\DeclareOptionBeamer{titlepage}[true]{\csname beamer@tcb@titlepage#1\endcsname}
+\DeclareOptionBeamer{blocks}[true]{\csname beamer@tcb@blocks#1\endcsname}
+
+\ExecuteOptionsBeamer{shadow=false}
+\ExecuteOptionsBeamer{rounded=false}
+\ExecuteOptionsBeamer{shaded=false}
+\ExecuteOptionsBeamer{inmargin=false}
+\ExecuteOptionsBeamer{showtitle=true}
+\ExecuteOptionsBeamer{titlepage=true}
+\ExecuteOptionsBeamer{blocks=true}
+
+% check options from other themes
+\ifdefined\beamer@themerounded@shadow
+  \beamer@tcb@roundedtrue
+  \beamer@tcb@shadedtrue
+  \ifx\beamer@themerounded@shadow\beamer@tcb@true
+    \beamer@tcb@shadowtrue
+  \fi
+  \beamer@tcb@showtitlefalse
+\fi
+
+\ifdefined\beamer@putleft
+  \beamer@tcb@inmargintrue
+\fi
+
+\ProcessOptionsBeamer
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Colours
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\beamer@tcb@colini}[1][]{
+  \usebeamercolor{block body#1} 
+  \colorlet{beamer@tcb@bodybg}{block body#1.bg}
+  \colorlet{beamer@tcb@bodyfg}{block body#1.fg}
+  \usebeamercolor{block title#1} 
+  \colorlet{beamer@tcb@titlebg}{block title#1.bg}
+  \colorlet{beamer@tcb@titlefg}{block title#1.fg}  
+  \usebeamercolor{normal text}
+}
+\beamer@tcb@colini
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% General Settings
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tcbset{
+  oversize=0mm
+}
+
+\tcbsetforeverylayer{
+  left=0.05cm,
+  right=0.05cm,
+  enhanced,
+  boxrule=0cm,
+  frame hidden,
+  top=1.5mm,
+  bottom=0.5mm,
+  colback=beamer@tcb@bodybg,
+  colbacktitle=beamer@tcb@titlebg,
+  coltext=beamer@tcb@bodyfg,
+  coltitle=beamer@tcb@titlefg,
+}
+
+% optional settings
+\ifbeamer@tcb@rounded
+  \tcbsetforeverylayer{
+    arc=1.3mm,
+    top=0.8mm,
+    toptitle=0.2mm,
+    bottom=0mm,
+  }
+\else
+  \tcbsetforeverylayer{sharpish corners}
+\fi
+
+\ifbeamer@tcb@shaded
+  \tcbsetforeverylayer{
+    title code app={
+      \shade[top color=beamer@tcb@titlebg,bottom color=beamer@tcb@bodybg] (title.south west) rectangle ([yshift=-0.5mm]title.south east); 
+    }    
+  }
+\fi
+
+\ifbeamer@tcb@shadow
+  \tcbsetforeverylayer{drop fuzzy shadow=black!90}
+\fi
+
+\ifbeamer@tcb@inmargin
+  \tcbsetforeverylayer{
+    detach title, 
+    overlay={
+      \node[anchor=north east,align=right,text width=\dimexpr\beamer@leftsidebar-\beamer@leftmargin-\beamer@rightmargin\relax] at ([xshift=-\beamer@leftmargin]frame.north west) {\tcbtitle};
+    }
+  }
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Defining blocks
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mode<presentation>
+
+\newtcolorbox{beamer@tcb@block}[1][]{
+  code={
+    \beamer@tcb@colini[#1]
+    \ifx\insertblocktitle\@empty\else
+      \beamer@tcb@showtitletrue
+    \fi
+  },
+  colback=beamer@tcb@bodybg,
+  colbacktitle=beamer@tcb@titlebg,
+  coltext=beamer@tcb@bodyfg,
+  coltitle=beamer@tcb@titlefg,
+  before title={\usebeamerfont{block title}},
+  before upper={\usebeamercolor{block body}\usebeamerfont{block body}},
+  beamer@tcb@if={ifbeamer@tcb@showtitle}{title={\insertblocktitle}}{},
+}
+
+\ifbeamer@tcb@blocks
+  \setbeamertemplate{block begin}{\begin{beamer@tcb@block}} 
+  \setbeamertemplate{block end}{\end{beamer@tcb@block}}
+  \setbeamertemplate{block alerted begin}{\begin{beamer@tcb@block}[ alerted]} 
+  \setbeamertemplate{block alerted end}{\end{beamer@tcb@block}}
+  \setbeamertemplate{block example begin}{\begin{beamer@tcb@block}[ example]} 
+  \setbeamertemplate{block example end}{\end{beamer@tcb@block}}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% patch title page etc.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\beamer@tcb@patchcolorbox}{%
+  \renewtcolorbox{beamercolorbox}[2][]{%
+    code={%
+      \usebeamercolor{##2}% 
+      \colorlet{beamer@tcb@bodybg}{##2.bg}%
+      \colorlet{beamer@tcb@bodyfg}{##2.fg}%
+      \ifbeamercolorempty[bg]{##2}{}{\beamer@tcb@colorfalse}%
+      \tikzset{/beamer@tcb/.cd,##1}%      
+    },
+    colback=beamer@tcb@bodybg,
+    coltext=beamer@tcb@bodyfg,
+    beamer@tcb@if={ifbeamer@tcb@color}{no shadow}{boxsep=\beamer@tcb@sep},
+    width=\beamer@tcb@wd,
+    beamer@tcb@if={ifbeamer@tcb@center}{halign=center}{},
+    beamer@tcb@if={ifbeamer@tcb@left}{halign=left}{},   
+    beamer@tcb@if={ifbeamer@tcb@right}{halign=right}{},    
+    left=\beamer@tcb@leftskip,
+    right=\beamer@tcb@rightskip,  
+  }%
+}
+
+\ifbeamer@tcb@titlepage
+  \addtobeamertemplate{title page}{\begingroup\beamer@tcb@patchcolorbox}{\endgroup}
+  \addtobeamertemplate{part page}{\begingroup\beamer@tcb@patchcolorbox}{\endgroup}
+  \addtobeamertemplate{section page}{\begingroup\beamer@tcb@patchcolorbox}{\endgroup}
+  \addtobeamertemplate{subsection page}{\begingroup\beamer@tcb@patchcolorbox}{\endgroup}
+\fi
+
+\mode<all>

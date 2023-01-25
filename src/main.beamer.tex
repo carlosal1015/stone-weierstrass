@@ -1,0 +1,44 @@
+% arara: clean: {
+% arara: --> extensions:
+% arara: --> ['aux','bbl','bcf','blg','log','nav','run.xml','snm','toc','pdf']
+% arara: --> }
+% arara: lualatex: {
+% arara: --> shell: no,
+% arara: --> draft: no,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: biber
+% arara: lualatex: {
+% arara: --> shell: no,
+% arara: --> draft: no,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: lualatex: {
+% arara: --> shell: no,
+% arara: --> draft: no,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: clean: {
+% arara: --> extensions:
+% arara: --> ['aux','bbl','bcf','blg','log','nav','run.xml','snm','toc']
+% arara: --> }
+\input{preamble.beamer}
+
+\begin{document}
+
+\mode<all>
+\input{section/portrait}
+\input{section/toc}
+\input{section/objectives}
+\input{section/preliminaries}
+\input{section/fejer}
+\input{section/lattice}
+\input{section/continuous}
+\input{section/realweierstrass}
+\input{section/complexweierstrass}
+\input{section/application}
+\input{section/generalizations}
+\input{section/quotes}
+\input{section/bibliography}
+
+\end{document}

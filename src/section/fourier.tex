@@ -1,0 +1,634 @@
+\begin{frame}
+	\frametitle{\secname}
+	\begin{definition}[Fourier series of $f$ relative]
+		Let $f\in L^{2}\left(I\right)$ and
+		${\left\{\varphi_{k}\right\}}_{k\in\mathds{N}}$ an orthonormal
+		sequence on $I$.
+		The \alert{Fourier series of $f$ relative} of
+		${\left\{\varphi_{k}\right\}}_{k\in\mathds{N}}$ is
+		\begin{math}
+			\displaystyle
+			\sum_{k\in\mathds{N}}
+			c_{k}\varphi_{k}\left(\theta\right),
+		\end{math}
+		where
+		\begin{math}
+			\forall k\in\mathds{N}:
+			c_{k}\coloneqq
+			\left\langle f,\varphi_{k}\right\rangle=
+			\displaystyle\int_{I}
+			f\left(\theta\right)\overline{\varphi_{k}\left(\theta\right)}
+		\end{math}
+		are the \alert{Fourier coefficients of $f$ relative} of
+		${\left\{\varphi_{k}\right\}}_{k\in\mathds{N}}$.
+	\end{definition}
+
+	\begin{block}{Example}
+		If $I=\left[0,2\pi\right]$ and two
+		orthonormal sequences of trigonometric functions
+		\begin{math}
+			{\left\{\varphi_{k}\right\}}_{k\in\mathds{N}},
+			{\left\{\phi_{k}\right\}}_{k\in\mathds{Z}}
+		\end{math}:
+		\begin{description}
+			\item[real]
+
+				\begin{math}
+					\varphi_{0}\left(\theta\right)=
+					\dfrac{1}{\sqrt{2\pi}},\quad
+					\varphi_{2k-1}\left(\theta\right)=
+					\dfrac{\cos\left(k\theta\right)}{\sqrt{\pi}},\quad
+					\varphi_{2k}\left(\theta\right)=
+					\dfrac{\sin\left(k\theta\right)}{\sqrt{\pi}}
+				\end{math}.
+
+			\item[complex]
+
+				\begin{math}
+					\phi_{k}\left(\theta\right)=
+					\dfrac{e^{ik\theta}}{\sqrt{2\pi}}=
+					\dfrac{
+						\cos\left(k\theta\right)+i\sin\left(k\theta\right)
+					}{\sqrt{2\pi}}
+				\end{math}.
+		\end{description}
+		Then, the Fourier series of $f$ relative of
+		${\left\{\varphi_{k}\right\}}_{k\in\mathds{N}}$ and
+		${\left\{\phi_{k}\right\}}_{k\in\mathds{N}}$ are
+		\begin{columns}
+			\begin{column}{0.48\textwidth}
+				\begin{description}
+					\item[real]
+
+						\begin{math}
+							\displaystyle
+							\dfrac{a_{0}}{2}+
+							\sum\limits_{k\in\mathds{N}}
+							a_{k}\cos\left(k\theta\right)+
+							b_{k}\sin\left(k\theta\right)
+						\end{math}.
+				\end{description}
+			\end{column}
+			\begin{column}{0.48\textwidth}
+				\begin{description}
+					\item[complex]
+
+						\begin{math}
+							\displaystyle
+							\sum\limits_{k\in\mathds{Z}}
+							\alpha_{k}
+							e^{ik\theta},\quad
+							\alpha_{k}=
+							\frac{1}{2\pi}
+							\int\limits_{0}^{2\pi}
+							f\left(\theta\right)
+							e^{-ik\theta}\dl\theta
+						\end{math}.
+				\end{description}
+			\end{column}
+		\end{columns}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\secname}
+	\begin{block}{Remark~\cite{Herman2021}}
+		The subset of functions
+		\begin{math}
+			{\left\{
+				\alert{\frac{1}{\sqrt{2\pi}}},
+				\alert{\frac{\cos\left(m\theta\right)}{\sqrt{\pi}}},
+				\alert{\frac{\sin\left(n\theta\right)}{\sqrt{\pi}}}
+				\right\}}_{m,n\in\mathds{N}}\subset
+			L^{2}\left(\left[0,2\pi\right]\right)
+		\end{math}
+		is an orthonormal subset of
+		\begin{math}
+			L^{2}\left(\left[0,2\pi\right]\right)
+		\end{math}.
+
+		Indeed, $\forall n,m\in\mathds{N}$:
+		\begin{itemize}
+			\item
+
+			      \begin{math}
+				      \displaystyle
+				      \int\limits_{0}^{2\pi}
+				      {
+				      \left(
+				      \alert{\frac{1}{\sqrt{2\pi}}}
+				      \right)
+				      }^{2}
+				      \dl\theta=
+				      \int\limits_{0}^{2\pi}
+				      \frac{1}{2\pi}
+				      \dl\theta=
+				      \frac{1}{2\pi}
+				      {
+					      \theta
+					      \Bigr|
+				      }_{0}^{2\pi}
+				      =1
+			      \end{math}.
+
+			\item
+
+			      \begin{math}
+				      \displaystyle
+				      \int\limits_{0}^{2\pi}
+				      {
+				      \left(
+				      \alert{\frac{\cos\left(m\theta\right)}{\sqrt{\pi}}}
+				      \right)
+				      }^{2}
+				      \dl\theta=
+				      \int\limits_{0}^{2\pi}
+				      \frac{\cos^{2}\left(m\theta\right)}{\pi}
+				      \dl\theta=
+				      \frac{1}{2\pi}
+				      \int\limits_{0}^{2\pi}
+				      1+\cos\left(2m\theta\right)
+				      \dl\theta=
+				      \frac{1}{2\pi}
+				      {
+					      \left(
+					      \theta+
+					      \frac{\sin\left(4m\theta\right)}{4m}
+					      \right)
+					      \Biggr|
+				      }_{0}^{2\pi}
+				      =1
+			      \end{math}.
+
+			\item
+
+			      \begin{math}
+				      \displaystyle
+				      \int\limits_{0}^{2\pi}
+				      {
+				      \left(
+				      \alert{\frac{\sin\left(n\theta\right)}{\sqrt{\pi}}}
+				      \right)
+				      }^{2}
+				      \dl\theta=
+				      \int\limits_{0}^{2\pi}
+				      \frac{\sin^{2}\left(n\theta\right)}{\pi}
+				      \dl\theta=
+				      \frac{1}{2\pi}
+				      \int\limits_{0}^{2\pi}
+				      1-\cos\left(2m\theta\right)
+				      \dl\theta=
+				      \frac{1}{2\pi}
+				      {
+					      \left(
+					      \theta-
+					      \frac{\sin\left(4m\theta\right)}{4m}
+					      \right)
+					      \Biggr|
+				      }_{0}^{2\pi}
+				      =1
+			      \end{math}.
+		\end{itemize}
+
+		\begin{columns}
+			\begin{column}{0.45\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \displaystyle
+						      \int\limits_{0}^{2\pi}
+						      \alert{\frac{1}{\sqrt{2\pi}}}
+						      \alert{\frac{\cos\left(m\theta\right)}{\sqrt{\pi}}}
+						      \dl\theta=
+						      \frac{1}{\sqrt{2}\pi}
+						      \int\limits_{0}^{2\pi}
+						      \cos\left(m\theta\right)
+						      \dl\theta=
+						      0
+					      \end{math}.
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.45\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \displaystyle
+						      \int\limits_{0}^{2\pi}
+						      \alert{\frac{1}{\sqrt{2\pi}}}
+						      \alert{\frac{\sin\left(n\theta\right)}{\sqrt{\pi}}}
+						      \dl\theta=
+						      \frac{1}{\sqrt{2}\pi}
+						      \int\limits_{0}^{2\pi}
+						      \sin\left(n\theta\right)
+						      \dl\theta=
+						      0
+					      \end{math}.
+				\end{itemize}
+			\end{column}
+		\end{columns}
+
+		\begin{itemize}
+
+			\item
+
+			      \begin{math}
+				      \displaystyle
+				      \int\limits_{0}^{2\pi}
+				      \alert{\frac{\cos\left(m\theta\right)}{\sqrt{\pi}}}
+				      \alert{\frac{\sin\left(n\theta\right)}{\sqrt{\pi}}}
+				      \dl\theta=
+				      \frac{1}{\pi}
+				      \int\limits_{0}^{2\pi}
+				      \sin\left(n\theta\right)
+				      \cos\left(m\theta\right)
+				      \dl\theta=
+				      \frac{1}{\pi}
+				      \int\limits_{0}^{2\pi}
+				      \frac{
+					      \sin\left(\left(n+m\right)\theta\right)-
+					      \sin\left(\left(n-m\right)\theta\right)
+				      }{2}
+				      \dl\theta=
+				      0.
+			      \end{math}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\secname}
+
+	\begin{definition}[Fourier series generated by $f$]
+		Let
+		\begin{math}
+			f\in L^{2}\left(\left[0,2\pi\right]\right)
+		\end{math}.
+		The \alert{Fourier coefficients} of $f$ are given by
+		\begin{equation*}
+			a_{0}=\frac{1}{\pi}
+			\int\limits_{0}^{2\pi}
+			f\left(\theta\right)\dl\theta,\quad
+			a_{k} =
+			\frac{1}{\pi}
+			\int\limits_{0}^{2\pi}
+			f\left(\theta\right)\cos\left(k\theta\right)\dl\theta,\quad
+			b_{k} =
+			\frac{1}{\pi}
+			\int\limits_{0}^{2\pi}
+			f\left(\theta\right)\sin\left(k\theta\right)\dl\theta.
+		\end{equation*}
+		and the \alert{$n$-th partial Fourier sum} is
+		\begin{equation*}
+			\fcolorbox{DarkBlue}{yellow}{
+				\begin{math}
+					\displaystyle
+					s_{n}f\left(\theta\right)=
+					\frac{a_{0}}{2}+
+					\sum_{k=1}^{n}
+					a_{k}\cos\left(k\theta\right)+
+					b_{k}\sin\left(k\theta\right)
+				\end{math}.
+			}
+		\end{equation*}
+	\end{definition}
+
+	Indeed, from the equalities $\forall k\in\mathds{N}$:
+	\begin{columns}
+		\begin{column}{0.25\textwidth}
+			\begin{itemize}
+				\item
+
+				      \begin{math}
+					      \displaystyle
+					      \int\limits_{0}^{2\pi}
+					      \frac{a_{0}}{2}
+					      \dl\theta=
+					      \frac{a_{0}}{2}
+					      {
+						      \theta
+						      \Bigr|
+					      }_{0}^{2\pi}=
+					      \pi a_{0}
+				      \end{math}.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.35\textwidth}
+			\begin{itemize}
+				\item
+
+				      \begin{math}
+					      \displaystyle
+					      \int\limits_{0}^{2\pi}
+					      \cos\left(k\theta\right)\dl\theta=
+					      {
+					      \frac{\sin\left(k\theta\right)}{k}
+					      \Biggr|
+					      }_{0}^{2\pi}=
+					      0
+				      \end{math}.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.35\textwidth}
+			\begin{itemize}
+				\item
+
+				      \begin{math}
+					      \displaystyle
+					      \int\limits_{0}^{2\pi}
+					      \sin\left(k\theta\right)\dl\theta=
+					      {
+					      \frac{-\cos\left(k\theta\right)}{k}
+					      \Biggr|
+					      }_{0}^{2\pi}=
+					      0
+				      \end{math}.
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	If we integrate the Fourier series term by term
+	\begin{align*}
+		\alert{\int\limits_{0}^{2\pi}}
+		f\left(\theta\right)
+		\dl\theta & =
+		\alert{\int\limits_{0}^{2\pi}}
+		\frac{a_{0}}{2}
+		\dl\theta+
+		\alert{\int\limits_{0}^{2\pi}}
+		\left(
+		\sum_{k=1}^{\infty}
+		a_{k}\cos\left(k\theta\right)+
+		b_{k}\sin\left(k\theta\right)
+		\right)
+		\dl\theta.
+		\shortintertext{Then,}
+		\int\limits_{0}^{2\pi}
+		f\left(\theta\right)
+		\dl\theta & =
+		\frac{a_{0}}{2}
+		\int\limits_{0}^{2\pi}
+		\dl\theta+
+		\sum_{k=1}^{\infty}
+		\left(
+		a_{k}
+		\alert{
+			\int\limits_{0}^{2\pi}
+			\cos\left(k\theta\right)
+			\dl\theta
+		}
+		+
+		b_{k}
+		\alert{
+			\int\limits_{0}^{2\pi}
+			\sin\left(k\theta\right)
+			\dl\theta
+		}
+		\right).      \\
+		\int\limits_{0}^{2\pi}
+		f\left(\theta\right)
+		\dl\theta & =
+		\pi a_{0}+
+		\sum_{k=1}^{\infty}
+		\left(
+		a_{k}\cdot\alert{0}+
+		b_{k}\cdot\alert{0}
+		\right).\quad\implies
+		\boxed{\color{DarkBlue}
+			a_{0}=
+			\frac{1}{\pi}
+			\int\limits_{0}^{2\pi}
+			f\left(\theta\right)\dl\theta.
+		}
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	Multiplying the Fourier series by
+	\alert{$\cos\left(m\theta\right)$},
+	$m\in\mathds{N}$
+	and integrating term by term:
+	\begin{align*}
+		\int\limits_{0}^{2\pi}
+		\alert{\cos\left(m\theta\right)}
+		f\left(\theta\right)
+		\dl\theta
+		 & =
+		\int\limits_{0}^{2\pi}
+		\alert{\cos\left(m\theta\right)}
+		\frac{a_{0}}{2}
+		\dl\theta+
+		\int\limits_{0}^{2\pi}
+		\alert{\cos\left(m\theta\right)}
+		\left(
+		\sum_{k=1}^{\infty}
+		a_{k}\cos\left(k\theta\right)+
+		b_{k}\sin\left(k\theta\right)
+		\right)
+		\dl\theta. \\
+		\int\limits_{0}^{2\pi}
+		f\left(\theta\right)
+		\cos\left(m\theta\right)
+		\dl\theta
+		 & =
+		0+
+		\sum_{k=1}^{\infty}
+		\left(
+		a_{k}
+		\int\limits_{0}^{2\pi}
+		\cos\left(k\theta\right)
+		\cos\left(m\theta\right)
+		\dl\theta+
+		b_{k}
+		\int\limits_{0}^{2\pi}
+		\sin\left(k\theta\right)
+		\cos\left(m\theta\right)
+		\dl\theta
+		\right).   \\
+		\int\limits_{0}^{2\pi}
+		f\left(\theta\right)
+		\cos\left(m\theta\right)
+		\dl\theta
+		 & =
+		\sum_{k=1}^{\infty}
+		\left(
+		\frac{a_{k}}{2}
+		\int\limits_{0}^{2\pi}
+		\alert{
+			\cos\left(\left(m+k\right)\theta\right)+
+			\cos\left(\left(m-k\right)\theta\right)
+		}
+		\dl\theta+
+		\frac{b_{k}}{2}
+		\int\limits_{0}^{2\pi}
+		\alert{
+			\sin\left(\left(m+k\right)\theta\right)+
+			\sin\left(\left(m-k\right)\theta\right)
+		}
+		\dl\theta
+		\right).
+		\shortintertext{
+			When $m\neq k$ \alert{both integrals} vanish, thus the
+			infinite sum reduces to $m$-th addend.}
+		\int\limits_{0}^{2\pi}
+		f\left(\theta\right)
+		\cos\left(m\theta\right)
+		\dl\theta
+		 & =
+		a_{m}
+		\int\limits_{0}^{2\pi}
+		\alert{\cos^{2}\left(m\theta\right)}
+		\dl\theta+
+		b_{m}
+		\alert{
+			\int\limits_{0}^{2\pi}
+			\sin\left(m\theta\right)
+			\cos\left(m\theta\right)
+			\dl\theta
+		}.         \\
+		\int\limits_{0}^{2\pi}
+		f\left(\theta\right)
+		\cos\left(m\theta\right)
+		\dl\theta
+		 & =
+		\frac{a_{m}}{\alert{2}}
+		\int\limits_{0}^{2\pi}
+		\alert{1+\cos\left(2m\theta\right)}
+		\dl\theta
+		+
+		b_{m}\cdot
+		\alert{0}. \\
+		\int\limits_{0}^{2\pi}
+		f\left(\theta\right)
+		\cos\left(m\theta\right)
+		\dl\theta
+		 & =
+		a_{m}\pi.
+		\quad
+		\implies
+		\boxed{\color{DarkBlue}
+			a_{m}=
+			\frac{1}{\pi}
+			\int\limits_{0}^{2\pi}
+			f\left(\theta\right)
+			\cos\left(m\theta\right)
+			\dl\theta.
+		}
+	\end{align*}
+\end{frame}
+
+\begin{frame}
+	Multiplying the Fourier series by
+	\alert{$\sin\left(m\theta\right)$},
+	$m\in\mathds{N}$
+	and integrating term by term:
+	\begin{align*}
+		\int\limits_{0}^{2\pi}
+		\alert{\sin\left(m\theta\right)}
+		f\left(\theta\right)
+		\dl\theta
+		 & =
+		\int\limits_{0}^{2\pi}
+		\alert{\sin\left(m\theta\right)}
+		\frac{a_{0}}{2}
+		\dl\theta+
+		\int\limits_{0}^{2\pi}
+		\alert{\sin\left(m\theta\right)}
+		\left(
+		\sum_{k=1}^{\infty}
+		a_{k}\cos\left(k\theta\right)+
+		b_{k}\sin\left(k\theta\right)
+		\right)
+		\dl\theta. \\
+		\int\limits_{0}^{2\pi}
+		f\left(\theta\right)
+		\sin\left(m\theta\right)
+		\dl\theta
+		 & =
+		0+
+		\sum_{k=1}^{\infty}
+		\left(
+		a_{k}
+		\int\limits_{0}^{2\pi}
+		\cos\left(k\theta\right)
+		\sin\left(m\theta\right)
+		\dl\theta+
+		b_{k}
+		\int\limits_{0}^{2\pi}
+		\sin\left(k\theta\right)
+		\sin\left(m\theta\right)
+		\dl\theta
+		\right).   \\
+		\int\limits_{0}^{2\pi}
+		f\left(\theta\right)
+		\sin\left(m\theta\right)
+		\dl\theta
+		 & =
+		\sum_{k=1}^{\infty}
+		\left(
+		\frac{a_{k}}{2}
+		\int\limits_{0}^{2\pi}
+		\alert{
+			\sin\left(\left(m+k\right)\theta\right)+
+			\sin\left(\left(m-k\right)\theta\right)
+		}
+		\dl\theta+
+		\frac{b_{k}}{2}
+		\int\limits_{0}^{2\pi}
+		\alert{
+			\cos\left(\left(m-k\right)\theta\right)-
+			\cos\left(\left(m+k\right)\theta\right)
+		}
+		\dl\theta
+		\right).
+		\shortintertext{
+			When $m\neq k$ \alert{both integrals} vanish, thus the
+			infinite sum reduces to $m$-th addend.}
+		\int\limits_{0}^{2\pi}
+		f\left(\theta\right)
+		\sin\left(m\theta\right)
+		\dl\theta
+		 & =
+		a_{m}
+		\alert{
+			\int\limits_{0}^{2\pi}
+			\cos\left(m\theta\right)
+			\sin\left(m\theta\right)
+			\dl\theta
+		}+
+		b_{m}
+		\int\limits_{0}^{2\pi}
+		\alert{\sin^{2}\left(m\theta\right)}
+		\dl\theta. \\
+		\int\limits_{0}^{2\pi}
+		f\left(\theta\right)
+		\sin\left(m\theta\right)
+		\dl\theta
+		 & =
+		a_{m}\cdot
+		\alert{0}+
+		\frac{b_{m}}{\alert{2}}
+		\int\limits_{0}^{2\pi}
+		\alert{1-\cos\left(2m\theta\right)}
+		\dl\theta. \\
+		\int\limits_{0}^{2\pi}
+		f\left(\theta\right)
+		\sin\left(m\theta\right)
+		\dl\theta
+		 & =
+		b_{m}\pi.
+		\quad
+		\implies
+		\boxed{\color{DarkBlue}
+			b_{m}=
+			\frac{1}{\pi}
+			\int\limits_{0}^{2\pi}
+			f\left(\theta\right)
+			\sin\left(m\theta\right)
+			\dl\theta.
+		}
+	\end{align*}
+\end{frame}

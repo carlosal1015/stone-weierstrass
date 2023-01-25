@@ -1,0 +1,115 @@
+\begin{frame}
+	\frametitle{\secname}
+
+	\begin{definition}[Antilinear function]
+		Let $\left(V,\mathds{C}\right)$ be a complex vector space.
+		A function $\ell\colon V\to\mathds{C}$ is \alert{antilinear} iff
+
+		\begin{columns}
+			\begin{column}{0.48\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \forall x,y\in V:
+						      \ell\left(x+y\right)=
+						      \ell\left(x\right)+
+						      \ell\left(y\right)
+					      \end{math}.
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.48\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \forall x\in V:\forall\lambda\in\mathds{C}:
+						      \ell\left(\lambda x\right)=
+						      \overline{\lambda}\ell\left(x\right)
+					      \end{math}.
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{definition}
+
+	\begin{definition}[Sesquilinear form]
+		Let $\left(V,\mathds{C}\right)$ be a complex vector space.
+		A \alert{sesquilinear form} on $V$ is a function
+		$V\times V\to\mathds{C}$ such that
+		\begin{math}
+			\forall x\in V:y\mapsto\left\langle x,y\right\rangle
+		\end{math}
+		is linear and
+		\begin{math}
+			y\mapsto\left\langle y,x\right\rangle
+		\end{math}
+		is antilinear.
+	\end{definition}
+
+	\begin{definition}[Pre-Hilbert space]
+		A \alert{pre-Hilbert space} is a complex vector space
+		$\left(V,\mathds{C}\right)$, with a sesquilinear form
+		that holds
+
+		\begin{columns}
+			\begin{column}{0.48\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \forall x\in V,x\neq0:
+						      \left\langle x,x\right\rangle\in\mathds{R}
+					      \end{math}
+					      y
+					      \begin{math}
+						      \left\langle x,x\right\rangle>0
+					      \end{math}.
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.48\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \forall x,y\in V:
+						      \left\langle x,y\right\rangle=
+						      \overline{\left\langle y,x\right\rangle}
+					      \end{math}.
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{definition}
+
+	\begin{definition}[Orthonormal set]
+		Let
+		\begin{math}
+			\left(
+			V,
+			\left\langle\cdot,\cdot\right\rangle
+			\right)
+		\end{math}
+		be a pre-Hilbert space.
+		\begin{math}
+			\left\{
+			x_{\lambda}
+			\right\}_{\lambda\in\Lambda}\subset V
+		\end{math}
+		is \alert{orthonormal} iff
+		\begin{math}
+			\left\langle x_{\alpha},x_{\beta}\right\rangle=
+			\delta_{\alpha,\beta}
+		\end{math},
+		i.e.
+		\begin{math}
+			\forall\alpha,\beta\in\Lambda:
+			\alpha\neq\beta\implies
+			\left\langle x_{\alpha},x_{\beta}\right\rangle=0
+		\end{math}
+		and
+		\begin{math}
+			\forall\alpha\in\Lambda:
+			\left\|x_{\alpha}\right\|=
+			1
+		\end{math}.
+	\end{definition}
+\end{frame}

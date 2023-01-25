@@ -1,0 +1,62 @@
+\begin{frame}
+	\frametitle{\secname}
+
+	\begin{definition}[Poset]
+		Sea $\mathcal{L}\neq\emptyset$ un conjunto.
+		Una \alert{relación de orden parcial} $\leq$ en $\mathcal{L}$ es
+		una relación binaria en $\mathcal{L}$ que cumple la
+		\begin{description}
+			\item[reflexiva]
+
+				\begin{math}
+					\forall a\in\mathcal{L}:
+					a\leq a.
+				\end{math}
+
+			\item[antisimétrica]
+
+				\begin{math}
+					\forall a,b\in\mathcal{L}:
+					a\leq b
+					\text{ y }
+					b\leq a\implies
+					a=b.
+				\end{math}
+
+			\item[transitiva]
+
+				\begin{math}
+					\forall a,b,c\in\mathcal{L}:
+					a\leq b
+					\text{ y }
+					b\leq c\implies
+					a\leq c.
+				\end{math}
+		\end{description}
+		Si $\leq$ es una relación de orden parcial en $\mathcal{L}$,
+		entonces $\left(\mathcal{L},\leq\right)$ es un
+		\alert{conjunto parcialemente ordenado}.
+	\end{definition}
+	\begin{definition}[Látice]
+		Un conjunto parcialmente
+		ordenado $\left(\mathcal{L},\leq\right)$ es \alert{látice} sii
+		$\forall a,b\in\mathcal{L}$ tiene un supremo, $a\wedge b$ y tiene
+		un ínfimo $a\vee b$.
+	\end{definition}
+
+	\begin{definition}[Látice vectorial o Espacio de Riesz]
+		Un \alert{látice vectorial} $V$ es un $\mathds{R}$-espacio
+		vectorial, que tiene un orden en cual este es un látice, con las
+		propiedades
+		\begin{equation*}
+			a\leq b\implies
+			x+a\leq x+b,\quad
+			\lambda\in\left[0,\infty\right), a\leq b\implies
+			\lambda a\leq\lambda b\vee\wedge.
+		\end{equation*}
+	\end{definition}
+
+	% \begin{proposition}
+	% 	Si $S\subset C_{\mathds{R}}\left(X\right)$.
+	% \end{proposition}
+\end{frame}

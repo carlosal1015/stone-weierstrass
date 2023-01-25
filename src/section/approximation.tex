@@ -1,0 +1,155 @@
+\section{Weierstraß approximation theorem}
+
+\input{section/complex}
+
+\begin{frame}[allowframebreaks]
+	% \frametitle{\secname}
+	\begin{theorem}[\secname~\cite{Apostol1974}]
+		If $f\colon\left[a,b\right]\to\mathds{R}$ is continuous, then
+		\begin{math}
+			\forall\varepsilon>0:
+			\exists
+			p_{\varepsilon}\colon\left[a,b\right]\to\mathds{R}
+		\end{math}
+		such that
+		\begin{math}
+			\forall\theta\in\left[a,b\right]:
+			\left|
+			f\left(x\right)-
+			p_{\varepsilon}\left(\theta\right)
+			\right|<
+			\varepsilon
+		\end{math}.
+	\end{theorem}
+
+	\begin{proof}
+		Suppose that $f\colon\left[a,b\right]\to\mathds{R}$ is
+		continuous.
+		We define the $2\pi$-periodic extension of $f$ as
+
+		\begin{align*}
+			g\colon\mathds{R} & \to\mathds{R} \\
+			\theta            & \mapsto
+			\begin{cases}
+				f\left(
+				a+\theta\frac{\left(b-a\right)}{\pi}
+				\right),
+				 & \theta\in\left[0,\pi\right).
+				\\
+				f\left(
+				a+\theta\frac{\left(2\pi-\theta\right)\left(b-a\right)}{\pi}
+				\right),
+				 & \theta\in\left[\pi,2\pi\right].
+				\\
+				g\left(\theta-2m\pi\right),
+				 & \exists m\in\mathds{Z}\setminus\left\{0\right\}
+				\text{ such that }
+				\theta\in\left[2m\pi,2\left(m+1\right)\pi\right].
+			\end{cases}
+		\end{align*}
+
+		Since
+		\begin{math}
+			g\in L\left(\left[0,2\pi\right]\right)
+		\end{math}
+		is $2\pi$-periodic.
+		By the \alert{Fejér's theorem},
+		\begin{math}
+			\forall\theta\in\operatorname{dom}\left(sg\right):
+			{\left\{
+			\sigma_{n}g\left(\theta\right)
+			\right\}}_{n\in\mathds{N}}
+		\end{math}
+		is Cesàro summable.
+		I.e.
+		\begin{math}
+			\forall\varepsilon>0:
+			\exists n_{0}\in\mathds{N}
+		\end{math}
+		such that
+		\begin{math}
+			\forall n\geq n_{0}:
+		\end{math}
+
+		\begin{equation*}
+			\left|
+			\sigma_{n}g\left(\theta\right)-
+			sg\left(\theta\right)
+			\right|<
+			\frac{\varepsilon}{2},\qquad
+			sg\left(\theta\right)=
+			a_{0}+
+			\sum\limits_{k=1}^{n}
+			\left(
+			a_{k}\cos\left(k\theta\right)+
+			b_{k}\sin\left(k\theta\right)
+			\right).
+		\end{equation*}
+
+		Also, the power series defined as
+		\begin{math}
+			1
+		\end{math}
+
+		\framebreak
+		% such that
+		% \begin{math}
+		% 	\forall\theta\in\left[0,2\pi\right]:
+		% 	\left|g\left(\theta\right)-\sigma\left(\theta\right)\right|
+		% 	<\frac{\varepsilon}{2}
+		% \end{math}.
+
+		Let $\forall\varepsilon>0$.
+		\begin{math}
+			\forall\theta\in\left[0,2\pi\right]:
+			\left|p_{m}\left(\theta\right)-g\left(\theta\right)\right|
+			<\varepsilon
+		\end{math}.
+		By the triangular inequality.
+		\begin{equation*}
+			\left|
+			p_{m}\left(\theta\right)-
+			g\left(\theta\right)
+			\right|=
+			\left|
+			p_{m}\left(\theta\right)
+			\alert{
+				-\sigma\left(\theta\right)+
+				\sigma\left(\theta\right)
+			}
+			-g\left(\theta\right)
+			\right|
+			\leq
+			\left|
+			p_{m}\left(\theta\right)-\sigma\left(\theta\right)
+			\right|+
+			\left|
+			\sigma\left(\theta\right)-g\left(\theta\right)
+			\right|
+			<\frac{\varepsilon}{2}+
+			\frac{\varepsilon}{2}=
+			\varepsilon.
+		\end{equation*}
+
+		We define the polynomial as
+		\begin{align*}
+			p_{\varepsilon}\colon\left[a,b\right] & \to\mathds{R} \\
+			\theta                                & \mapsto
+			p_{m}\left(\pi\frac{\theta-a}{b-a}\right)
+		\end{align*}
+
+		\begin{equation*}
+			\left|
+			f\left(\theta\right)-
+			p_{\varepsilon}\left(\theta\right)
+			\right|<
+			\varepsilon.
+		\end{equation*}
+
+		\begin{math}
+			t\mapsto a+\left(b-a\right)t
+		\end{math}
+		is a continuous bijection from $\left[0,1\right]$
+		to $\left[a,b\right]$.
+	\end{proof}
+\end{frame}

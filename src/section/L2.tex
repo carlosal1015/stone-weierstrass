@@ -1,0 +1,392 @@
+% TODO: L^{2} is a Hilbert space.
+
+% \begin{frame}
+% 	El análisis de Fourier con la ecuación de la onda
+% 	\begin{math}
+% 		\diff[2]{y}{t}=
+% 		c{2}\diff[2]{y}{x}
+% 	\end{math}.
+
+% 	Sea $\left(X,\left\langle,\right\rangle\right)$ un espacio
+% 	pre-Hilbert el espacio de las funciones
+% 	$f\colon\left[0,2\pi\right]\to\mathds{R}$
+% \begin{math}
+% 	\left(\alpha f+g\right)\left(x\right)=
+% 	\alpha f\left(x\right)+g\left(x\right)
+% \end{math}
+% \begin{math}
+% 	\left\langle f,g\right\rangle=
+% 	\int_{0}^{2\pi}
+% 	f\left(x\right)
+% 	g\left(x\right)
+% 	\dl x
+% \end{math}
+% 	\begin{block}{Serie de Fourier generalizada}
+% 		Sea
+% 		\begin{math}
+% 			\left\{
+% 			\varphi_{n}:\left[0,2\pi\right]\to\mathds{R}
+% 			\right\}_{n\in\mathds{N}}\subset
+% 			L\left(\left[0,2\pi\right]\right)
+% 		\end{math}
+% 		una sucesión ortonormal dada por
+% 	\end{block}
+% \end{frame}
+
+% Si $f\in L\left(\left[0,2\pi\right]\right)$, entonces
+% $a_{n},b_{n}<\infty$.
+% \textcolor{DarkBlue}{a_{k}}
+
+% \begin{definition}[Función superior]
+% 	Una función $f\colon I\to\mathds{R}$ es \alert{superior} en $I$
+% sii
+% 	$\exists\left\{s_{n}\right\}_{n\in\mathds{N}}$ tal que
+% 	\begin{multicols}{2}
+% 		\begin{itemize}
+% 			\item $s_{n}\to f$ casi en todas partes de $I$.
+% 		\end{itemize}
+% 	\end{multicols}
+% \end{definition}
+
+% \begin{definition}[Convergencia de una sucesión]
+% 	Una sucesión
+% 	\begin{math}
+% 		{\left\{z_{n}\right\}}_{n\in\mathds{N}}\subset
+% 		\mathds{C}
+% 	\end{math}
+% 	es \alert{convergente} sii $\exists z\in\mathds{C}$ tal que
+% 	\begin{math}
+% 		\forall\varepsilon>0:
+% 		\exists N_{\varepsilon}\in\mathds{N}
+% 	\end{math}
+% 	tal que
+% 	\begin{math}
+% 		\forall n\geq N_{\varepsilon}:
+% 		\left|z_{n}-z\right|<\varepsilon
+% 	\end{math}.
+
+% La \alert{sucesión de sumas parciales} se define como
+% \begin{math}
+% 	s_{n}\coloneqq\sum\limits_{k=1}^{n}z_{k}
+% \end{math}.
+% La serie
+% \begin{math}
+% 	\sum\limits_{k\in\mathds{N}}z_{k}
+% \end{math}
+% es \alert{convergente} al número $s\in\mathds{C}$ sii
+% la sucesión
+% \begin{math}
+% 	{\left\{s_{n}\right\}}_{n\in\mathds{N}}\subset
+% 	\mathds{C}
+% \end{math}
+% converge a $s$.
+% \end{definition}
+
+% https://proofwiki.org/wiki/Ces%C3%A0ro_Mean
+% \begin{definition}[Sumación de Cesàro]
+% 	Sean
+% 	\begin{math}
+% 		{\left\{z_{n}\right\}}_{n\in\mathds{N}}\subset
+% 		\mathds{C}
+% 	\end{math}
+% 	y $\left\{s_{n}\right\}_{n\in\mathds{N}}$ su sucesión de sumas
+% 	parciales.
+% 	La \alert{sucesión de las medias aritméticas} se define como
+% 	\begin{math}
+% 		\sigma_{n}\coloneqq
+% 		\dfrac{1}{n}\sum\limits_{k=1}^{n}s_{k}
+% 	\end{math}.
+% 	Si ${\left\{\sigma_{n}\right\}}_{n\in\mathds{N}}$ es convergente,
+% 	entonces la serie
+% 	\begin{math}
+% 		\sum\limits_{n\in\mathds{N}}z_{n}
+% 	\end{math}
+% 	es \alert{sumable de Cesàro}.
+% \end{definition}
+
+% \begin{definition}[Convergencia uniforme]
+% 	Sea $D\subset\mathds{C}$.
+% 	\begin{math}
+% 		\forall n\in\mathds{N}:f_{n}\colon D\to\mathds{C}
+% 	\end{math}
+% 	una función.
+% 	La sucesión de funciones
+% 	\begin{math}
+% 		{\left\{f_{n}\right\}}_{n\in\mathds{N}}
+% 	\end{math}
+% 	\alert{converge uniformemente} a la función
+% 	$f\colon D\to\mathds{C}$ sii
+% 	\begin{math}
+% 		\forall\varepsilon>0:\exists N\in\mathds{N}
+% 	\end{math}
+% 	tal que
+% 	\begin{math}
+% 		\forall n\geq N:
+% 		{\left\|f_{n}-f\right\|}_{\infty}<
+% 		\varepsilon.
+% 	\end{math}
+% \end{definition}
+
+% TODO: .
+% \frac{1}{n\pi}
+% \frac{
+% 	\sin^{2}\left(n\frac{\xi}{2}\right)
+% }{
+% 	\alert{\sin^{2}\left(\frac{\xi}{2}\right)}
+% }
+% \frac{1}{n\pi}
+% \frac{
+% 	\int\limits_{\delta}^{\pi}
+% 	\left|
+% 	g_{\theta}\left(\xi\right)
+% 	\right|
+% 	\dl\xi
+% }{\alert{\sin^{2}\left(\frac{\delta}{2}\right)}}
+% \leq
+% \frac{
+% 	\int\limits_{0}^{\pi}
+% 	\left|
+% 	g_{\theta}\left(\xi\right)
+% 	\right|
+% 	\dl\xi
+% }{n\pi\sin^{2}\left(\frac{\delta}{2}\right)}.
+% \shortintertext{
+% 	Sea $N\in\mathds{N}$ tal que
+% 	$
+% 		\dfrac{
+% 			\int\limits_{0}^{\pi}
+% 			\left|
+% 			g_{\theta}\left(\xi\right)
+% 			\right|
+% 			\dl\xi
+% 		}{
+% 			N\pi\sin^{2}
+% 			\left(\frac{\delta}{2}\right)
+% 		}<
+% 		\dfrac{\varepsilon}{2}
+% 	$.
+% 	Entonces, $\forall n\geq N$:
+% 	$
+% 		\displaystyle
+% 		\left|
+% 		\sigma_{n}\left(\theta\right)-
+% 		s\left(\theta\right)
+% 		\right|\leq
+% 		\left|
+% 		\frac{1}{n\pi}
+% 		\int\limits_{0}^{\pi}
+% 		g_{\theta}\left(\xi\right)
+% 		\frac{
+% 			\sin^{2}\left(n\frac{\xi}{2}\right)
+% 		}{
+% 			\sin^{2}\left(\frac{\xi}{2}\right)
+% 		}
+% 		\dl\xi
+% 		\right|
+% 		<\varepsilon.
+% 	$
+% }
+
+% \begin{frame}
+% 	\begin{theorem}
+% 		Sean $f\in L\left(\left(0,2\pi\right)\right)$ $2\pi$-periódica y
+% 		$\left\{s_{n}\left(f\right)\right\}$ la $n$-ésima suma parcial de
+% 		la serie de Fourier de $f$, y $\sigma_{n}\left(f\right)$ la
+% 		sucesión de sumación Cesàro de la sucesión $s_{n}\left(f\right)$.
+% 		Entonces, la sucesión $s_{n}\left(f\right)$ converge.
+% 	\end{theorem}
+% \end{frame}
+
+% \begin{frame}
+% 	\begin{proof}[\proofname\ (Cont.)]
+% 		Sean $n\in\mathds{N}$ y $\xi\in\left[0,\delta\right]$.
+% 		\begin{align*}
+% 			\left|
+% 			\sigma_{n}\left(\theta\right)-
+% 			s\left(\theta\right)
+% 			\right| & =
+% 			\left|
+% 			\frac{1}{n\pi}
+% 			\int\limits_{0}^{\delta}
+% 			\left(
+% 			\alert{
+% 				\frac{
+% 					f\left(\theta+\xi\right)+
+% 					f\left(\theta-\xi\right)
+% 				}{2}-s\left(\theta\right)
+% 			}
+% 			\right)
+% 			\frac{
+% 				\sin^{2}\left(n\frac{\xi}{2}\right)
+% 			}{
+% 				\sin^{2}\left(\frac{\xi}{2}\right)
+% 			}
+% 			\dl\xi
+% 			\right|=
+% 			\left|
+% 			\frac{1}{n\pi}
+% 			\int\limits_{0}^{\delta}
+% 			\alert{g_{\theta}\left(\xi\right)}
+% 			\frac{
+% 				\sin^{2}\left(n\frac{\xi}{2}\right)
+% 			}{
+% 				\sin^{2}\left(\frac{\xi}{2}\right)
+% 			}
+% 			\dl\xi
+% 			\right|        \\
+% 			        & \leq
+% 			\frac{1}{n\pi}
+% 			\left|
+% 			\int\limits_{0}^{\delta}
+% 			\alert{g_{\theta}\left(\xi\right)}
+% 			\frac{
+% 				\sin^{2}\left(n\frac{\xi}{2}\right)
+% 			}{
+% 				\sin^{2}\left(\frac{\xi}{2}\right)
+% 			}
+% 			\dl\xi
+% 			\right|\leq
+% 			\frac{1}{n\pi}
+% 			\left|
+% 			\int\limits_{0}^{\delta}
+% 			\alert{\frac{\varepsilon}{2}}
+% 			\frac{
+% 				\sin^{2}\left(n\frac{\xi}{2}\right)
+% 			}{
+% 				\sin^{2}\left(\frac{\xi}{2}\right)
+% 			}
+% 			\dl\xi
+% 			\right|=
+% 			\frac{\varepsilon}{2}
+% 			\frac{2}{n\pi}
+% 			\alert{
+% 				\int\limits_{0}^{\pi}
+% 				\frac{1}{2n}
+% 				\frac{
+% 					\sin^{2}\left(n\frac{\xi}{2}\right)
+% 				}{
+% 					\sin^{2}\left(\frac{\xi}{2}\right)
+% 				}
+% 				\dl\xi
+% 			}
+% 			=\frac{\varepsilon}{2}\cdot\alert{1}.
+% 		\end{align*}
+
+% 		Sea $\theta\in\left[0,2\pi\right]$.
+% 		Como $f$ es continua en $\left[0,2\pi\right]$, entonces
+% 		$f$ es uniformemente continua en $\left[0,2\pi\right]$.
+
+% 		Es decir,
+% 		\begin{math}
+% 			\forall\varepsilon>0
+% 			\exists\delta>0
+% 		\end{math}
+% 		tal que
+% 		\begin{math}
+% 			\forall\theta_{1},\theta_{2}\in\left[0,2\pi\right]:
+% 			\left|
+% 			\theta_{1}-\theta_{2}
+% 			\right|<\delta\implies
+% 			\left|
+% 			f\left(\theta_{1}\right)-f\left(\theta_{2}\right)
+% 			\right|<\varepsilon
+% 		\end{math}.
+
+% 		\begin{align*}
+% 			\left|
+% 			\sigma_{n}\left(\theta\right)-
+% 			s\left(\theta\right)
+% 			\right|\leq
+% 			\frac{2}{\pi}
+% 			\int\limits_{0}^{\pi}
+% 			\left|g_{\theta}\left(\xi\right)\right|
+% 			\left|K_{n}\left(\xi\right)\right|
+% 			\dl\xi
+% 			=
+% 			\frac{2}{\pi}
+% 			\int\limits_{0}^{\delta}
+% 			\left|g_{\theta}\left(\xi\right)\right|
+% 			K_{n}\left(\xi\right)
+% 			\dl\xi
+% 			+
+% 			\frac{2}{\pi}
+% 			\int\limits_{\delta}^{\pi}
+% 			\left|g_{\theta}\left(\xi\right)\right|
+% 			K_{n}\left(\xi\right)
+% 			\dl\xi \\
+% 			=
+% 			\frac{2}{\pi}
+% 			\int\limits_{0}^{\delta}
+% 			\left|g_{\theta}\left(\xi\right)\right|
+% 			K_{n}\left(\xi\right)
+% 			\dl\xi
+% 			+
+% 			\frac{2}{\pi}
+% 			\int\limits_{\delta}^{\pi}
+% 			\left|g_{\theta}\left(\xi\right)\right|
+% 			K_{n}\left(\xi\right)
+% 			\dl\xi \\
+% 		\end{align*}
+
+% 		Pero,
+% 		\begin{math}
+% 			\forall\xi\in\left[0,2\pi\right]:
+% 			\exists\delta_{\xi}
+% 		\end{math}
+% 		tal que
+% 		\begin{math}
+% 			\left|
+% 			g_{\theta}\left(\xi\right)
+% 			\right|<
+% 			\dfrac{\varepsilon}{2}
+% 		\end{math}.
+
+% 		Si $f$ es continua en $\left[0,2\pi\right]$, entonces
+% 		$f$ es acotada en $\mathds{R}$, es decir, $\exists M>0$ tal que
+% 		$\forall\theta,\xi\in\mathds{R}$:
+% 		\begin{math}
+% 			\left|g_{\theta}\left(\xi\right)\right|\leq M
+% 		\end{math}.
+
+% 		\begin{equation*}
+% 			\left|
+% 			\sigma_{n}\left(\theta\right)-
+% 			s\left(\theta\right)
+% 			\right|
+% 			\leq
+% 			\frac{1}{2\pi}
+% 			\int_{0}^{\pi}
+% 			\left|
+% 			\right|
+% 			K_{n}\left(\xi\right)
+% 			\dl\xi
+% 			<\varepsilon
+% 		\end{equation*}
+% 	\end{proof}
+% \end{frame}
+
+\begin{frame}
+	\begin{equation*}
+		L^{2}\left(\mathds{R}\right)=
+		\left\{
+		f\colon\mathds{R}\to\mathds{C}\mid
+		\int_{\mathds{R}}\left|f\right|\dl\mu<\infty
+		\right\}.
+	\end{equation*}
+
+	\begin{theorem}
+		$L^{2}\left[0,1\right]\subset L^{1}\left[0,1\right]$.
+	\end{theorem}
+
+	\begin{proof}
+		.
+	\end{proof}
+
+	\begin{theorem}
+		The space $L^{2}\left[0,1\right]$ is meager in $L^{1}\left[0,1\right]$.
+	\end{theorem}
+
+	\begin{proof}
+		.
+	\end{proof}
+\end{frame}

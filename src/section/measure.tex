@@ -1,0 +1,706 @@
+\begin{frame}
+	\frametitle{\secname}
+
+	\begin{definition}[$\sigma$-algebra]
+		Let $X$ be a set.
+		A \alert{$\sigma$-algebra} on $X$ is a family
+		$\mathcal{F}\subset 2^{X}$ that holds
+
+		\begin{columns}
+			\begin{column}{0.48\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \forall A\in\mathcal{F}\implies
+						      X\setminus A\in\mathcal{F}
+					      \end{math}.
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.48\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \forall
+						      \left\{A_{i}\right\}_{i\in\mathds{N}}\subset
+						      \mathcal{F}\implies
+						      \bigcup\limits_{i\in\mathds{N}}A_{i}\in\mathcal{F}
+					      \end{math}.
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{definition}
+
+	\begin{definition}[Measure]
+		Let $X$ be a set and $\mathcal{F}$ a $\sigma$-algebra on $X$.
+		A \alert{measure} on $\left(X,\mathcal{F}\right)$ is a function
+		\begin{math}
+			\mu\colon\mathcal{F}\to\left[0,\infty\right]
+		\end{math}
+		that holds
+
+		\begin{columns}
+			\begin{column}{0.18\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \mu\left(\emptyset\right)=
+						      0.
+					      \end{math}
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.78\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \forall
+						      {\left\{A_{i}\right\}}_{i\in\mathds{N}}\subset
+						      \mathcal{F}:
+						      \forall i\neq j:
+						      A_{i}\cap A_{j}=\emptyset\implies
+						      \mu\left(
+						      \bigcup\limits_{i\in\mathds{N}}A_{i}
+						      \right)=
+						      \sum\limits_{i\in\mathds{N}}\mu\left(A_{i}\right)
+					      \end{math}.
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{definition}
+
+	\begin{definition}[Outer measure]
+		Let $X$ be a set.
+		An \alert{outer measure} on $X$ is a function
+		\begin{math}
+			\mu^{\ast}\colon 2^{X}\to\left[0,\infty\right]
+		\end{math}
+		that holds
+		\begin{columns}
+			\begin{column}{0.13\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \mu^{\ast}\left(\emptyset\right)=
+						      0.
+					      \end{math}
+				\end{itemize}
+
+			\end{column}
+			\begin{column}{0.43\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \forall A,B\in 2^{X}:
+						      A\subset B\implies
+						      \mu^{\ast}\left(A\right)\leq
+						      \mu^{\ast}\left(B\right)
+					      \end{math}.
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.48\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \forall
+						      \left\{A_{i}\right\}_{i\in\mathds{N}}\subset
+						      2^{X}\implies
+						      \mu^{\ast}
+						      \left(\bigcup\limits_{i\in\mathds{N}}A_{i}\right)=
+						      \sum\limits_{i\in\mathds{N}}\mu^{\ast}
+						      \left(A_{i}\right)
+					      \end{math}.
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{definition}
+
+	\note{
+		.
+	}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\secname}
+
+	\begin{definition}[$\sigma$-algebra generated]
+		Let $X$ be a set and $\mathcal{G}\subset 2^{X}$.
+		The \alert{$\sigma$-algebra generated} by $\mathcal{G}$ is the
+		smallest $\sigma$-algebra on $X$ which contains $\mathcal{G}$.
+		\begin{equation*}
+			\sigma\left(\mathcal{G}\right)\coloneqq
+			\bigcap\limits_{
+				\mathcal{A}\in\mathcal{F}\left(\mathcal{G}\right)
+			}
+			\mathcal{A},\quad
+			\mathcal{F}\left(\mathcal{G}\right)=
+			\left\{
+			\mathcal{A}\subset 2^{X}\mid
+			\mathcal{G}\subset\mathcal{A},
+			\mathcal{A}\text{ is a $\sigma$-algebra on $X$}
+			\right\}.
+		\end{equation*}
+	\end{definition}
+
+	\begin{definition}[Borel $\sigma$-algebra]
+		Let $\left(X,\mathcal{T}\right)$ be a topological space.
+		The \alert{Borel $\sigma$-algebra} on $X$ is
+		$\sigma\left(\mathcal{T}\right)$.
+		The sets in $\sigma\left(\mathcal{T}\right)$ are
+		\alert{Borel sets}.
+	\end{definition}
+
+	\begin{definition}[Lebesgue measure]
+		The \alert{Lebesgue measure} is a measure
+		on $\left(\mathds{R},\mathcal{B}\right)$, where $\mathcal{B}$ is
+		the Borel $\sigma$-algebra of subsets of $\mathds{R}$, which
+		assigns each Borel set its outer measure.
+	\end{definition}
+
+	\begin{definition}[Lebesgue space $\mathcal{L}^{1}\left(\mu\right)$]
+		Let $\left(X,\mathcal{F},\mu\right)$ be a measure space.
+		If $f\colon X\to\left[-\infty,\infty\right]$ is
+		$\mathcal{F}$-measurable, then the
+		\alert{$\mathcal{L}^{1}$-norm} of $f$ is
+		\begin{equation*}
+			{\left\|f\right\|}_{1}\coloneqq
+			\int\left|f\right|\dl\mu.
+		\end{equation*}
+		The \alert{Lebesgue space} $\mathcal{L}^{1}\left(\mu\right)$
+		is
+		\begin{math}
+			\mathcal{L}^{1}\left(\mu\right)\coloneqq
+			\left\{
+			f\colon X\to\mathds{R}\mid
+			f\text{ is a function $\mathcal{F}$-measurable and }
+			\left\|f\right\|_{1}<\infty
+			\right\}.
+		\end{math}
+	\end{definition}
+
+	\note{
+		Discuss a little the Borel sets and the Lebesgue measure.
+	}
+\end{frame}
+
+\begin{frame}
+	\begin{definition}[${\left\|f\right\|}_{p}$, essential supremum]
+		Let $\left(X,\mathcal{F},\mu\right)$ be a measure space and
+		$0<p<\infty$.
+		If $f\colon X\to\mathds{C}$ is $\mathcal{F}$-measurable, then
+		the \alert{$p$-norm} of $f$ is
+		\begin{equation*}
+			{\left\|f\right\|}_{p}\coloneqq
+			{\left(
+				\int{\left|f\right|}^{p}\dl\mu
+				\right)}^{\frac{1}{p}}.
+		\end{equation*}
+		Also, the \alert{essential supremum} of $f$ is
+		\begin{math}
+			{\left\|f\right\|}_{\infty}=
+			\inf
+			\left\{
+			t>0:
+			\mu\left(
+			\left\{x\in X:\left|f\left(x\right)\right|>t\right\}
+			\right)=0
+			\right\}.
+		\end{math}
+	\end{definition}
+
+	\begin{theorem}
+		Let $\left(X,\mathcal{F},\mu\right)$ be a measure space and
+		$0<p<\infty$.
+		Then,
+		\alert{$\mathcal{L}^{p}\left(\mu\right)$ is a vector space}
+		and it is holds:
+		\begin{columns}
+			\begin{column}{0.48\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \forall f,g\in\mathcal{L}^{p}\left(\mu\right):
+						      {\left\|f+g\right\|}^{p}_{p}\leq
+						      2^{p}
+						      \left(
+						      {\left\|f\right\|}^{p}_{p}+
+						      {\left\|g\right\|}^{p}_{p}
+						      \right)
+					      \end{math}.
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.48\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \forall f\in\mathcal{L}^{p}\left(\mu\right):
+						      \forall\alpha\in\mathds{C}:
+						      {\left\|\alpha f\right\|}_{p}=
+						      \left|\alpha\right|
+						      {\left\|f\right\|}_{p}
+					      \end{math}.
+
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{theorem}
+
+	\begin{proof}
+		Let $f,g\in\mathcal{L}^{p}\left(\mu\right)$, $0<p<\infty$,
+		$x\in X$ and $\alpha\in\mathds{C}$.
+		\begin{itemize}
+			\item
+
+			      Then,
+			      \begin{math}
+				      {\left|f\left(x\right)+g\left(x\right)\right|}^{p}
+				      \leq
+				      {
+					      \left(
+					      \left|f\left(x\right)\right|+
+					      \left|g\left(x\right)\right|
+					      \right)
+				      }^{p}
+				      \leq
+				      {\left(
+					      2\max
+					      \left\{
+					      \left|f\left(x\right)\right|,
+					      \left|g\left(x\right)\right|
+					      \right\}
+					      \right)
+				      }^{p}
+				      \leq
+				      2^{p}
+				      \left(
+				      {\left|f\left(x\right)\right|}^{p}+
+				      {\left|g\left(x\right)\right|}^{p}
+				      \right)
+			      \end{math}.
+
+			      Integrating both sides of the inequality with respect to
+			      $\mu$:
+			      \begin{math}
+				      {\left\|f+g\right\|}^{p}_{p}
+				      \leq
+				      2^{p}
+				      \left(
+				      {\left\|f\right\|}^{p}_{p}+{\left\|g\right\|}^{p}_{p}
+				      \right)
+			      \end{math}.
+
+			      I.e. if ${\left\|f\right\|}_{p}<\infty$ and
+			      ${\left\|g\right\|}_{p}<\infty$, then
+			      ${\left\|f+g\right\|}_{p}<\infty$.
+
+			\item
+
+			      \begin{math}
+				      \displaystyle
+				      {\left\|\alpha f\right\|}_{p}=
+				      {
+				      \left(
+				      \int
+				      {\left|\alpha f\right|}^{p}\dl\mu
+				      \right)
+				      }^{\frac{1}{p}}
+					      =
+					      {
+						      \left(
+						      \int
+						      {\left|\alpha\right|}^{p}
+						      {\left|f\right|}^{p}\dl\mu
+						      \right)
+					      }^{\frac{1}{p}}
+					      =
+					      {\left|\alpha\right|}^{\frac{p}{p}}
+					      {
+						      \left(
+						      \int
+						      {\left|f\right|}^{p}\dl\mu
+						      \right)
+					      }^{\frac{1}{p}}
+				      =
+				      \left|\alpha\right|
+				      {\left\|f\right\|}_{p}
+			      \end{math}.
+		\end{itemize}
+
+		Since $0\in\mathcal{L}^{p}\left(\mu\right)$,
+		\begin{math}
+			\mathcal{L}^{p}\left(\mu\right)<
+			\mathds{C}^{X}
+		\end{math}
+		is closed under addition and scalar multiplication.
+		$\therefore$
+		\alert{$\mathcal{L}^{p}\left(\mu\right)$ is a vector space}.
+	\end{proof}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Remark~\cite{Liou2013}}
+		Let $\left(X,\mathcal{F},\mu\right)$ be a measure space.
+		The function
+		\begin{align*}
+			\mathcal{L}^{2}\left(\mu\right) & \to\mathds{R} \\
+			f                               & \mapsto
+			{\left(
+				\int_{X}{{\left|f\right|}}^{2}\dl\mu
+				\right)}^{\frac{1}{2}}
+		\end{align*}
+		\alert{is not a norm} on $\mathcal{L}^{2}\left(\mu\right)$
+		because $\exists f\in\mathcal{L}^{2}\left(\mu\right)$ non-zero
+		such that
+		\begin{math}
+			\displaystyle
+			\int_{X}{{\left|f\right|}}^{2}\dl\mu=
+			0\in
+			\mathds{R}
+		\end{math}.
+		% So we define the equivalence relation on
+	\end{block}
+
+	\begin{definition}[$\mathcal{Z}\left(\mu\right)$, $\widetilde{f}$]
+		Let $\left(X,\mathcal{F},\mu\right)$ be a measure space and
+		$0<p\leq\infty$.
+		We define
+		\begin{itemize}
+			\item
+
+			      \begin{math}
+				      \alert{\mathcal{Z}\left(\mu\right)}\coloneqq
+				      \left\{
+				      f\colon X\to\mathds{C}\mid
+				      f\text{ is a function $\mathcal{F}$-measurable and }
+				      \mu
+				      \left(
+				      \left\{x\in X:f\left(x\right)\neq0\right\}
+				      \right)=
+				      0
+				      \right\}
+			      \end{math}.
+
+			\item
+
+			      \begin{math}
+				      \forall f\in\mathcal{L}^{p}\left(\mu\right):
+				      \alert{\widetilde{f}}=
+				      \left\{
+				      f+z:z\in\mathcal{Z}\left(\mu\right)
+				      \right\}<
+				      \mathcal{L}^{p}\left(\mu\right)
+			      \end{math}.
+		\end{itemize}
+		Note that if $f,F\in\mathcal{L}^{p}\left(\mu\right)$, then
+		$\widetilde{f}=\widetilde{F}$ iff
+		\begin{math}
+			\mu\left(
+			\left\{
+			x\in X:f\left(x\right)\neq F\left(x\right)
+			\right\}
+			\right)=0
+		\end{math}.
+	\end{definition}
+
+	\begin{definition}[$L^{p}\left(\mu\right)$ space]
+		Let $\mu$ is a measure and $0<p\leq\infty$.
+		The set $L^{p}\left(\mu\right)$ are the
+		\alert{equivalence classes of functions} on
+		\begin{math}
+			\mathcal{L}^{p}\left(\mu\right)
+		\end{math},
+		where two functions are equivalent iff they are equal almost
+		everywhere.
+		\begin{columns}
+			\begin{column}{0.42\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \alert{
+							      L^{p}\left(\mu\right)
+						      }
+						      \coloneqq
+						      \left\{
+						      \widetilde{f}:
+						      f\in\mathcal{L}^{p}\left(\mu\right)
+						      \right\}=
+						      \mathcal{L}^{p}
+						      \left(\mu\right)/\mathcal{Z}\left(\mu\right).
+					      \end{math}
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.54\textwidth}
+				\begin{itemize}
+					\item
+
+					      \begin{math}
+						      \forall\widetilde{f},\widetilde{g}\in
+						      L^{p}\left(\mu\right):
+						      \forall\alpha\in\mathds{C}:
+						      \widetilde{f}+\widetilde{g}\coloneqq
+						      {\left(f+g\right)}^{\widetilde{}},\quad
+						      \alpha\widetilde{f}\coloneqq
+						      {\left(\alpha f\right)}^{\widetilde{}}.
+					      \end{math}
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{definition}
+\end{frame}
+
+\begin{frame}
+	\begin{definition}[${\left\|\cdot\right\|}_{p}$ on $L^{p}\left(\mu\right)$]
+		Let $\mu$ be a measure and $0<p\leq\infty$.
+		We define
+		\begin{math}
+			\forall f\in\mathcal{L}^{p}\left(\mu\right):
+			{\left\|\widetilde{f}\right\|}_{p}=
+				{\left\|f\right\|}_{p}
+		\end{math}.
+
+		Note that if $f,F\in\mathcal{L}^{p}\left(\mu\right)$
+		and $\widetilde{f}=\widetilde{F}$, then
+		\begin{math}
+			{\left\|f\right\|}_{p}=
+				{\left\|F\right\|}_{p}
+		\end{math}.
+	\end{definition}
+
+	\begin{theorem}
+		Let $\mu$ be a measure and $p\leq 1\leq\infty$.
+		Then, $L^{p}\left(\mu\right)$ is a \alert{vector space} and
+		${\left\|\cdot\right\|}_{p}$ is a norm on
+		$L^{p}\left(\mu\right)$.
+	\end{theorem}
+
+	\begin{proof}[\alert{A proof soon}]
+		Let
+		\begin{math}
+			\widetilde{f},\widetilde{g}\in
+			L^{p}\left(\mu\right)
+		\end{math}
+		and $\alpha\in\mathds{C}$.
+
+		% Since,
+		% \begin{math}
+		% 	\forall 1\leq q\leq p:
+		% 	L^{p}\left(\mu\right)\subset
+		% 	L^{q}\left(\mu\right)
+		% \end{math}.
+	\end{proof}
+\end{frame}
+
+\begin{frame}
+	\begin{definition}[Convergent sequence]
+		Let $\left(X,\left\|\cdot\right\|\right)$ be a normed
+		$\mathds{C}$-vector space.
+		A sequence
+		\begin{math}
+			\left\{f_{n}\right\}_{n\in\mathds{N}}\subset
+			X
+		\end{math}
+		is a \alert{convergent sequence} iff $\exists f\in X$ such that
+		\begin{math}
+			\forall\varepsilon>0:
+			\exists N\in\mathds{N}
+		\end{math}
+		such that
+		\begin{math}
+			\forall n\geq N:
+			\left\|f-f_{n}\right\|<
+			\varepsilon
+		\end{math}.
+	\end{definition}
+
+	\begin{definition}[Cauchy sequence]
+		Let $\left(X,\left\|\cdot\right\|\right)$ be a normed
+		$\mathds{C}$-vector space.
+		A sequence
+		\begin{math}
+			\left\{f_{n}\right\}_{n\in\mathds{N}}\subset
+			X
+		\end{math}
+		is a \alert{Cauchy sequence} iff
+		\begin{math}
+			\forall\varepsilon>0:\exists N\in\mathds{N}
+		\end{math}
+		such that
+		\begin{math}
+			\forall m,n\geq N:
+			\left\|f_{m}-f_{n}\right\|<\varepsilon
+		\end{math}.
+		$\left(X,\left\|\cdot\right\|\right)$ is \alert{complete} iff
+		each Cauchy sequence in $X$ is convergent in $X$.
+	\end{definition}
+
+	\begin{theorem}
+		Let $\left(X,\left\|\cdot\right\|\right)$ be a normed
+		$\mathds{C}$-vector space and
+		${\left\{f_{n}\right\}}_{n\in\mathds{N}}\subset X$ a sequence.
+		If
+		\begin{math}
+			{\left\{f_{n}\right\}}_{n\in\mathds{N}}
+		\end{math}
+		is convergent in X, then
+		\begin{math}
+			{\left\{f_{n}\right\}}_{n\in\mathds{N}}
+		\end{math}
+		is Cauchy in $X$.
+		Also, if
+		\begin{math}
+			{\left\{f_{n}\right\}}_{n\in\mathds{N}}
+		\end{math}
+		is Cauchy in $X$ and has a
+		\alert{convergent subsequence} in $X$, then
+		\begin{math}
+			{\left\{f_{n}\right\}}_{n\in\mathds{N}}
+		\end{math}
+		converges in $X$.
+	\end{theorem}
+
+	\begin{proof}
+		Let ${\left\{f_{n}\right\}}_{n\in\mathds{N}}\subset X$ a
+		convergent sequence.
+		I.e. $\exists f\in X$ such that
+		\begin{math}
+			\forall\varepsilon>0:
+			\exists N\in\mathds{N}
+		\end{math}
+		such that
+		\begin{math}
+			\forall n\geq N:
+			\left\|f-f_{n}\right\|<
+			\frac{\varepsilon}{2}
+		\end{math}.
+
+		Hence,
+		\begin{math}
+			\forall\varepsilon>0:
+			\exists N\in\mathds{N}
+		\end{math}
+		such that
+		\begin{math}
+			\forall m,n\geq N:
+			\left\|f_{m}\alert{-f+f}-f_{n}\right\|\leq
+			\left\|f_{m}-f\right\|+
+			\left\|f-f_{n}\right\|<
+			\frac{\varepsilon}{2}+
+			\frac{\varepsilon}{2}=
+			\varepsilon
+		\end{math}.
+
+		\
+
+		Let ${\left\{f_{n}\right\}}_{n\in\mathds{N}}\subset X$
+		a Cauchy sequence that has a convergent subsequence
+		${\left\{f_{n_{k}}\right\}}_{k\in\mathds{N}}\subset X$.
+		Since ${\left\{f_{n}\right\}}_{n\in\mathds{N}}$ is a Cauchy, i.e.
+		\begin{math}
+			\exists N\in\mathds{N}
+		\end{math}
+		such that
+		\begin{math}
+			\forall m,n\geq N:
+			\left\|f_{m}-f_{n}\right\|<
+			\frac{\varepsilon}{2}
+		\end{math}.
+		Also ${\left\{f_{n_{k}}\right\}}_{k\in\mathds{N}}$ is convergent,
+		i.e. $\exists n_{k}>N$ such that
+		\begin{math}
+			\left\|f-f_{n_{k}}\right\|<
+			\frac{\varepsilon}{2}
+		\end{math}.
+
+		Therefore,
+		\begin{math}
+			\forall\varepsilon>0:
+			\exists N\in\mathds{N}
+		\end{math}
+		such that
+		\begin{math}
+			\forall n\geq N:
+			\left\|f\alert{-f_{n_{k}}+f_{n_{k}}}-f_{n}\right\|\leq
+			\left\|f-f_{n_{k}}\right\|+
+			\left\|f_{n_{k}}-f_{n}\right\|<
+			\frac{\varepsilon}{2}+
+			\frac{\varepsilon}{2}=
+			\varepsilon
+		\end{math}.
+	\end{proof}
+\end{frame}
+
+\begin{frame}
+	\begin{theorem}[Riesz - Fischer theorem]
+		Let $\left(X,\mathcal{F},\mu\right)$ be a measure space and
+		$1\leq p\leq\infty$.
+		Then, $L^{p}\left(\mu\right)$ is a Banach space.
+	\end{theorem}
+
+	\begin{proof}[\alert{A proof soon}]
+		Let
+		\begin{math}
+			{\left\{\widetilde{f}_{n}\right\}}_{n\in\mathds{N}}\subset
+			L^{p}\left(\mu\right)
+		\end{math}
+		a Cauchy sequence, i.e.
+		\begin{math}
+			\forall\varepsilon>0:
+			\exists N\in\mathds{N}
+		\end{math}
+		such that
+		\begin{math}
+			\forall m,n\geq N:
+			{\left\|\widetilde{f}_{m}-\widetilde{f}_{n}\right\|}_{p}<
+			\frac{\varepsilon}{2}
+		\end{math}.
+
+		% \begin{math}
+		% 	\displaystyle
+		% 	{\left\|\widetilde{f}_{m}-\widetilde{f}_{n}\right\|}_{p}=
+		% 	{\left\|\widetilde{f}_{m}\alert{-f+f}-\widetilde{f}_{n}\right\|}_{p}\leq
+		% 	{\left\|\widetilde{f}_{m}-f\right\|}_{p}+
+		% 	{\left\|f-\widetilde{f}_{n}\right\|}_{p}=
+		% 		{\left(\int_{X}{\left|f_{m}-f\right|}^{p}\dl\mu\right)}^{\frac{1}{p}}+
+		% 	{\left(\int_{X}{\left|f-f_{n}\right|}^{p}\dl\mu\right)}^{\frac{1}{p}}
+		% \end{math}.
+
+		% Hence, $\exists\widetilde{f}\in L^{p}\left(\mu\right)$ such that
+		% \begin{math}
+		% 	\forall\varepsilon>0:
+		% 	\exists N\in\mathds{N}
+		% \end{math}
+		% such that
+		% \begin{math}
+		% 	\forall n\geq N:
+		% \end{math}
+
+		% \begin{equation*}
+		% 	{\left\|\widetilde{f}-\widetilde{f}_{n}\right\|}_{p}=
+		% 	{\left\|
+		% 	\widetilde{f}-\widetilde{f}_{n_{k}}+
+		% 	\widetilde{f}_{n_{k}}-\widetilde{f}_{n}
+		% 	\right\|}_{p}\leq
+		% 	{\left\|\widetilde{f}-\widetilde{f}_{n_{k}}\right\|}_{p}+
+		% 	{\left\|\widetilde{f}_{n_{k}}-\widetilde{f}_{n}\right\|}_{p}
+		% 	<
+		% 	\frac{\varepsilon}{2}+
+		% 	\frac{\varepsilon}{2}
+		% 	<\varepsilon.
+		% \end{equation*}
+	\end{proof}
+
+	% We say that $f_{n}\xrightarrow{L^{2}}f$ iff
+	% \begin{math}
+	% 	\left\|f-f_{n}\right\|\to0
+	% \end{math}.
+	% Suppose that $\left\{f_{n}\right\}$ is a Cauchy sequence
+	% $\exists f\in L^{2}$ such that $f_{n}\xrightarrow{L^{2}}f$.
+\end{frame}

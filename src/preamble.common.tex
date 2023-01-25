@@ -1,0 +1,23 @@
+\usepackage[ngerman,english]{babel}
+
+\usepackage{mathtools}
+\usepackage[ISO]{diffcoeff}
+\usepackage{dsfont}
+
+\graphicspath{{images/}}
+
+\let\oldforall\forall
+\renewcommand{\forall}{\oldforall \, }
+\let\oldexist\exists
+\renewcommand{\exists}{\oldexist \: }
+\newcommand\existu{\oldexist! \: }
+
+\usepackage[
+	% citestyle=numeric,
+	% style=amsplain,
+	% backend=biber,
+	% defernumbers=true,
+	% sorting=ynt,
+	% maxcitenames=4
+]{biblatex}
+\addbibresource{references.bib}

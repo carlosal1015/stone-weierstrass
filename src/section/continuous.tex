@@ -1,0 +1,51 @@
+\begin{frame}
+
+	\frametitle{\secname}
+
+	\begin{definition}[Espacio las funciones continuas]
+		Sea $\left(X, \mathcal{T}\right)$ un espacio topológico compacto
+		y Hausdorff.
+		Definimos
+		\begin{align*}
+			C\left(X,\mathds{R}\right) & \coloneqq
+			\left\{\text{todas las funciones continuas }f\colon X\to\mathds{R}
+			\right\}.                              \\
+			C\left(X,\mathds{C}\right) & \coloneqq
+			\left\{\text{todas las funciones continuas }f\colon X\to\mathds{C}
+			\right\}.
+		\end{align*}
+	\end{definition}
+
+	\begin{definition}[Separa puntos]
+		Un conjunto de funciones
+		$S\subset C\left(X,\mathds{R}\right)$
+		\alert{separa puntos} sii
+		\begin{math}
+			\forall x,y\in X:
+			x\neq y\implies
+			\exists f\in S
+			\text{ tal que }
+			f\left(x\right)\neq f\left(y\right)
+		\end{math}.
+		Además, $S$ \alert{separa puntos fuertemente} sii
+		\begin{math}
+			\forall x,y\in X,x\neq y:
+			\left\{
+			\left(
+			f\left(x\right),
+			f\left(y\right)
+			\right)
+			\right\}_{f\in S}=
+			\mathds{R}^{2}
+		\end{math}.
+	\end{definition}
+
+	\begin{theorem}
+		Si $S\subset C\left(X,\mathds{R}\right)$ es un $\mathds{R}$-espacio vectorial,
+		separa puntos y $\mathds{1}\in S$, entonces $S$ separa puntos fuertemente.
+	\end{theorem}
+
+	\begin{proof}
+		Sean $x,y\in X$ distintos.
+	\end{proof}
+\end{frame}
