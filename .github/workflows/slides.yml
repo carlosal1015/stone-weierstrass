@@ -15,6 +15,7 @@ jobs:
         shell: bash
         run: |
           REPO="https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
+          # git config --global init.defaultBranch main
           git config --global user.email github-actions@github.com
           git config --global user.name github-actions
           git clone -q --filter=blob:none --no-checkout --depth=1  --sparse $REPO .
